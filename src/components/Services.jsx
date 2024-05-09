@@ -33,7 +33,7 @@ const Services = () => {
             </div>
 
             <div className='relative z-1 max-w-[17rem] ml-auto'>
-              <h4 className='h4 mb-4'>Smartest AI</h4>
+              <h4 className='h4 mb-4'>Shooting</h4>
               <p className='body-2 mb-[3rem] text-n-3'>
                 Pixel unlocks the potential of AI-powered applications
               </p>

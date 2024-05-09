@@ -25,6 +25,7 @@ import background from './background.jpg'
 
 import curve from './hero/curve.png'
 import robot from './hero/robot.jpg'
+import smoke from './hero/smoke.jpeg'
 import hero1 from './hero/Hero.jpg'
 import heroBackground from './hero/hero-background.jpg'
 
@@ -165,6 +166,7 @@ export {
   raindrop,
   slack,
   service,
+  smoke,
   service1,
   service2,
   service3,

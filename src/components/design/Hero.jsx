@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { MouseParallax } from 'react-just-parallax'
+import twitter from '../../assets/neon/Twitter.svg'
+import pixel from '../../assets/neon/Pixel.svg'
+import instagram from '../../assets/neon/Instagram.svg'
 
 import PlusSvg from '../../assets/svg/PlusSvg'
 
@@ -50,27 +53,30 @@ export const BackgroundCircles = ({ parallaxRef }) => {
       <MouseParallax strength={0.07} parallaxContainerRef={parallaxRef}>
         <div className='absolute bottom-1/2 left-1/2 w-0.25 h-1/2 origin-bottom rotate-[46deg]'>
           <div
-            className={`w-2 h-2 -ml-1 -mt-36 bg-gradient-to-b from-[orange] to-[orange] rounded-full transition-transform duration-500 ease-out ${
+            className={`w-2 h-2 -ml-1 -mt-36 bg-gradient-to-b from-[green] to-[green] rounded-full transition-transform duration-500 ease-out ${
               mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           />
         </div>
+        {/* <img src={twitter} alt='' className='absolute h-20 w-20 mt-48 ml-52' /> */}
 
         <div className='absolute bottom-1/2 left-1/2 w-0.25 h-1/2 origin-bottom -rotate-[56deg]'>
           <div
-            className={`w-4 h-4 -ml-1 -mt-32 bg-gradient-to-b from-[orange] to-[orange] rounded-full transition-transform duration-500 ease-out ${
+            className={`w-4 h-4 -ml-1 -mt-32 bg-gradient-to-b from-[red] to-[red] rounded-full transition-transform duration-500 ease-out ${
               mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           />
         </div>
+        {/* <img src={pixel} alt='' className='absolute h-20 w-20 mt-48 ml-96' /> */}
 
         <div className='absolute bottom-1/2 left-1/2 w-0.25 h-1/2 origin-bottom rotate-[54deg]'>
           <div
-            className={`hidden w-4 h-4 -ml-1 mt-[12.9rem] bg-gradient-to-b from-[orange] to-[orange] rounded-full xl:block transit transition-transform duration-500 ease-out ${
+            className={`hidden w-4 h-4 -ml-1 mt-[12.9rem] bg-gradient-to-b from-[yellow] to-[yellow] rounded-full xl:block transit transition-transform duration-500 ease-out ${
               mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           />
         </div>
+        {/* <img src={instagram} alt='' className='absolute h-20 w-20 mt-48 ' /> */}
 
         <div className='absolute bottom-1/2 left-1/2 w-0.25 h-1/2 origin-bottom -rotate-[65deg]'>
           <div
@@ -82,7 +88,7 @@ export const BackgroundCircles = ({ parallaxRef }) => {
 
         <div className='absolute bottom-1/2 left-1/2 w-0.25 h-1/2 origin-bottom -rotate-[85deg]'>
           <div
-            className={`w-6 h-6 -ml-3 -mt-3 bg-gradient-to-b from-[orange] to-[orange] rounded-full transition-transform duration-500 ease-out ${
+            className={`w-6 h-6 -ml-3 -mt-3 bg-gradient-to-b from-[#BEF574] to-[#BEF574] rounded-full transition-transform duration-500 ease-out ${
               mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           />

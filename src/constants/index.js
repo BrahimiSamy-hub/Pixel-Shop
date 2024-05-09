@@ -1,4 +1,5 @@
 import {
+  smoke,
   benefitIcon1,
   benefitIcon2,
   benefitIcon3,
@@ -127,9 +128,9 @@ export const companyLogos = [
 ]
 
 export const brainwaveServices = [
-  'Photo generating',
-  'Photo enhance',
-  'Seamless Integration',
+  'Shooting Profesionnel',
+  'Shooting Artistique',
+  'Shooting Produit',
 ]
 
 export const brainwaveServicesIcons = [
@@ -182,16 +183,16 @@ export const collabText =
 export const collabContent = [
   {
     id: '0',
-    title: 'Seamless Integration',
-    text: collabText,
+    title: 'Shooting',
+    // text: collabText,
   },
   {
     id: '1',
-    title: 'Smart Automation',
+    title: 'Spot Publicitaire',
   },
   {
     id: '2',
-    title: 'Top-notch Security',
+    title: 'Short Movie',
   },
 ]
 
