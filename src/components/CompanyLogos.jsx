@@ -38,7 +38,7 @@ const CompanyLogos = ({ className }) => {
         spaceBetween={10}
         autoplay={{
           delay: 0,
-          disableOnInteraction: false,
+          disableOnInteraction: true,
         }}
         speed={5000}
         slidesPerView={4}

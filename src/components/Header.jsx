@@ -61,7 +61,7 @@ const Header = () => {
               </Link>
             ))}
             <Link to='/shop'>
-              <Button className='flex lg:hidden mt-6'>Boutique</Button>
+              <Button className='flex lg:hidden mt-6'>Shop</Button>
             </Link>
           </div>
 
@@ -71,7 +71,7 @@ const Header = () => {
           New account
         </Link> */}{' '}
         <Link to='/shop'>
-          <Button className='hidden lg:flex'>Boutique</Button>
+          <Button className='hidden lg:flex'>Shop</Button>
         </Link>
         <Button
           className='ml-auto lg:hidden'

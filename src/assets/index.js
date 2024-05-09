@@ -1,5 +1,6 @@
 import brainwave from './brainwave.svg'
 import logo from './logo.jpg'
+import p from './P.png'
 import logowhite from './logowhite.png'
 import check from './check.svg'
 import brainwaveSymbol from './brainwave-symbol.svg'
@@ -23,7 +24,7 @@ import sliders04 from './sliders-04.svg'
 import loading from './loading.png'
 import background from './background.jpg'
 
-import curve from './hero/curve.png'
+import curve from './hero/curve.svg'
 import robot from './hero/robot.jpg'
 import smoke from './hero/smoke.jpeg'
 import hero1 from './hero/Hero.jpg'
@@ -97,6 +98,7 @@ import benefitIcon2 from './benefits/icon-2.svg'
 import benefitIcon3 from './benefits/icon-3.svg'
 import benefitIcon4 from './benefits/icon-4.svg'
 import benefitImage2 from './benefits/image-2.png'
+import neonService from './benefits/neon1.png'
 
 import discordBlack from './socials/discord.svg'
 import facebook from './socials/facebook.svg'
@@ -106,6 +108,8 @@ import twitter from './socials/twitter.svg'
 export {
   logo,
   // sliderlogo,
+  p,
+  neonService,
   hero1,
   Frosty,
   Crunchy,

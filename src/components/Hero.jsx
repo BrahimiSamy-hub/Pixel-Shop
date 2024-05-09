@@ -41,9 +41,14 @@ const Hero = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quidem
             ut, ratione odit, doloribus iste?
           </p>
-          <Button white>
-            <Link to='/shop'>Boutique</Link>
-          </Button>
+          <div className=' flex gap-10 justify-center'>
+            <Link to='/shop'>
+              <Button white>Shop</Button>
+            </Link>
+            <a href='#services'>
+              <Button white>Services</Button>
+            </a>
+          </div>
         </div>
         <div className='relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24'>
           <div className='relative z-1 p-0.5 rounded-2xl bg-orange-500'>
@@ -84,7 +89,7 @@ const Hero = () => {
           </div>
           <div className='absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%] '>
             <img
-              src={smoke}
+              src=''
               className='w-full'
               width={1440}
               height={1800}

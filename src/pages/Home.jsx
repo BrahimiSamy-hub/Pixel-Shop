@@ -7,6 +7,7 @@ import Hero from '../components/Hero'
 import Pricing from '../components/Pricing'
 import Roadmap from '../components/Roadmap'
 import Services from '../components/Services'
+import Contact from '../components/Contact'
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         <Pricing />
         <Services />
         {/* <Roadmap /> */}
+        <Contact />
         <Footer />
       </div>
 
