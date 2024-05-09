@@ -291,6 +291,17 @@ export const pricing = [
       'Ability to explore the app and its features without any cost',
     ],
   },
+  {
+    id: '3',
+    title: 'Start-up',
+    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    price: null,
+    features: [
+      'An AI chatbot that can understand your queries',
+      'Personalized recommendations based on your preferences',
+      'Ability to explore the app and its features without any cost',
+    ],
+  },
 ]
 
 export const benefits = [

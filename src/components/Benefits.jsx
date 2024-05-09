@@ -17,7 +17,7 @@ const Benefits = () => {
           {benefits.map((item) => (
             <Link to={item.url} key={item.id}>
               <div
-                className='block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]'
+                className='block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem] '
                 data-aos='zoom-in'
                 style={{
                   backgroundImage: `url(${item.backgroundUrl})`,

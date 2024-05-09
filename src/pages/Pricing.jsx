@@ -19,7 +19,7 @@ const Pricing = () => {
           <div className='container'>
             <PricingList />
           </div>
-          <Details />
+          {/* <Details /> */}
         </Section>
 
         <Footer />
