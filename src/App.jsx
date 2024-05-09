@@ -1,30 +1,30 @@
-import ButtonGradient from "./assets/svg/ButtonGradient";
-import Benefits from "./components/Benefits";
-import Collaboration from "./components/Collaboration";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Pricing from "./components/Pricing";
-import Roadmap from "./components/Roadmap";
-import Services from "./components/Services";
-
+import { useEffect } from 'react'
+import 'aos/dist/aos.css'
+import AOS from 'aos'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from '../src/pages/Home'
+import Pricing from '../src/pages/Pricing'
+import Shop from '../src/pages/Shop'
+import Portfolio from '../src/pages/Portfolio'
+import ScrollToTop from './utils/ScrollToTop'
 const App = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: false,
+    })
+  }, [])
   return (
-    <>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Header />
-        <Hero />
-        <Benefits />
-        <Collaboration />
-        <Services />
-        <Pricing />
-        <Roadmap />
-        <Footer />
-      </div>
+    <Router>
+      <ScrollToTop />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/pricing' element={<Pricing />} />
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/portfolio' element={<Portfolio />} />
+      </Routes>
+    </Router>
+  )
+}
 
-      <ButtonGradient />
-    </>
-  );
-};
-
-export default App;
+export default App

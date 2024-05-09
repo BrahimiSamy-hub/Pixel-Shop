@@ -1,23 +1,60 @@
-import { companyLogos } from "../constants";
+// import { companyLogos } from '../constants'
+
+// const CompanyLogos = ({ className }) => {
+//   return (
+//     <div className={className}>
+//       <h5 className='tagline mb-6 text-center text-n-1/50'>
+//         Helping people create beautiful content at
+//       </h5>
+//       <ul className='flex'>
+//         {companyLogos.map((logo, index) => (
+//           <li
+//             className='flex items-center justify-center flex-1 h-[8.5rem]'
+//             key={index}
+//           >
+//             <img src={logo} width={134} height={28} alt={logo} />
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   )
+// }
+
+// export default CompanyLogos
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import { companyLogos } from '../constants'
 
 const CompanyLogos = ({ className }) => {
   return (
     <div className={className}>
-      <h5 className="tagline mb-6 text-center text-n-1/50">
+      <h5 className='tagline mb-6 text-center text-n-1/50'>
         Helping people create beautiful content at
       </h5>
-      <ul className="flex">
+      <Swiper
+        spaceBetween={10}
+        autoplay={{
+          delay: 0,
+          disableOnInteraction: false,
+        }}
+        speed={5000}
+        slidesPerView={4}
+        loop={true}
+        modules={[Autoplay]}
+      >
         {companyLogos.map((logo, index) => (
-          <li
-            className="flex items-center justify-center flex-1 h-[8.5rem]"
-            key={index}
-          >
-            <img src={logo} width={134} height={28} alt={logo} />
-          </li>
+          <SwiperSlide key={index}>
+            <div className='flex items-center justify-center h-[17.5rem]'>
+              <img src={logo} width={134} height={28} alt='logo' className='' />
+            </div>
+          </SwiperSlide>
         ))}
-      </ul>
+      </Swiper>
     </div>
-  );
-};
+  )
+}
 
-export default CompanyLogos;
+export default CompanyLogos
