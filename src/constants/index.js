@@ -50,6 +50,7 @@ import {
   raindrop,
   recording01,
   recording03,
+  benefitCard1,
   roadmap1,
   roadmap2,
   roadmap3,

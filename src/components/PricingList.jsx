@@ -65,7 +65,7 @@ const PricingList = () => {
       slidesPerView={1}
       breakpoints={{
         640: { slidesPerView: 1 },
-        1024: { slidesPerView: 3 },
+        1024: { slidesPerView: 3.5 },
       }}
     >
       {pricing.map((item) => (

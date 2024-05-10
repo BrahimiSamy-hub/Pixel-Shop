@@ -16,11 +16,22 @@ const Benefits = () => {
           {/* <Link to='/pricing'> */}
           {benefits.map((item) => (
             <Link to={item.url} key={item.id}>
-              <div
+              {/* <div
                 className='block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem] '
                 data-aos='zoom-in'
                 style={{
                   backgroundImage: `url(${item.backgroundUrl})`,
+                }}
+              > */}
+              <div
+                className='block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem] shadow-lg '
+                data-aos='zoom-in'
+                style={{
+                  border: '2px solid transparent',
+                  // borderImage:
+                  // 'linear-gradient(to bottom, #33CEFF, transparent) 1',
+                  boxShadow: '0 0 0 1px #26242C',
+                  borderRadius: '3%',
                 }}
               >
                 <div className='relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none'>
@@ -44,7 +55,7 @@ const Benefits = () => {
 
                 <div
                   className='absolute inset-0.5 bg-n-8'
-                  style={{ clipPath: 'url(#benefits)' }}
+                  // style={{ clipPath: 'url(#benefits)' }}
                 >
                   <div className='absolute inset-0 opacity-10 transition-opacity hover:opacity-30'>
                     {item.imageUrl && (
@@ -59,7 +70,7 @@ const Benefits = () => {
                   </div>
                 </div>
 
-                <ClipPath />
+                {/* <ClipPath /> */}
               </div>
             </Link>
           ))}

@@ -38,7 +38,12 @@ const Header = () => {
     >
       <div className='flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4'>
         <Link className='block w-[12rem] xl:mr-8' to='/'>
-          <img src={logowhite} alt='Brainwave' className='mt-2 mb-2' />
+          <img
+            src={logowhite}
+            alt='Pixel'
+            className='w-[150px]'
+            loading='lazy'
+          />
         </Link>
         <nav
           className={`${
