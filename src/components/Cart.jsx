@@ -1,17 +1,9 @@
 import React, { Fragment, useState } from 'react'
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { StarIcon } from '@heroicons/react/20/solid'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import Section from '../components/Section'
-import shirt from '../assets/shirt1.png'
-import ButtonGradient from '../assets/svg/ButtonGradient'
-import Cart from '../components/Cart'
 import { useCart } from '../context/CartContext' // Adjust path as necessary
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import shirt from '../assets/shirt1.png'
+
 const products = [
   // Assuming each product has a unique ID
   {
@@ -33,7 +25,7 @@ const products = [
     color: 'Grey',
   },
   {
-    id: 2,
+    id: 3,
     name: 'Classic Tee',
     href: '#',
     imageSrc: shirt,
@@ -42,7 +34,7 @@ const products = [
     color: 'Grey',
   },
   {
-    id: 2,
+    id: 4,
     name: 'Classic Tee',
     href: '#',
     imageSrc: shirt,
@@ -51,7 +43,7 @@ const products = [
     color: 'Grey',
   },
   {
-    id: 2,
+    id: 5,
     name: 'Classic Tee',
     href: '#',
     imageSrc: shirt,
@@ -60,7 +52,7 @@ const products = [
     color: 'Grey',
   },
   {
-    id: 2,
+    id: 6,
     name: 'Classic Tee',
     href: '#',
     imageSrc: shirt,
@@ -69,7 +61,7 @@ const products = [
     color: 'Grey',
   },
   {
-    id: 2,
+    id: 7,
     name: 'Classic Tee',
     href: '#',
     imageSrc: shirt,
@@ -79,7 +71,7 @@ const products = [
   },
 
   {
-    id: 3,
+    id: 8,
     name: 'Premium Tee',
     href: '#',
     imageSrc: shirt,
@@ -88,129 +80,13 @@ const products = [
     color: 'White',
   },
 ]
-const Shop = ({ openCart, setOpenCart }) => {
-  const [open, setOpen] = useState(false)
-  const [selectedProduct, setSelectedProduct] = useState(products[0])
-  const { isOpen, toggleCart } = useCart() // Use the context
-  const handleProductClick = (product) => {
-    setSelectedProduct(product)
-    setOpen(true)
-  }
+
+const cart = () => {
+  const { isOpen, toggleCart } = useCart()
 
   return (
     <>
-      <div className='pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden'>
-        <Header />
-        <Section
-          className='pt-[8rem] -mt-[5.25rem]'
-          crosses
-          crossesOffset='lg:translate-y-[5.25rem]'
-          customPaddings
-        >
-          <div className='container relative'>
-            <div className='mx-auto max-w-2xl px-4 sm:px-6 sm:pb-24 lg:max-w-7xl lg:px-8'>
-              <h2 className='text-2xl font-bold tracking-tight '>Our Shop</h2>
-              <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
-                {products.map((product) => (
-                  <div key={product.id} className='group relative'>
-                    <div className='aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-80 border border-[#26242C] p-4'>
-                      <img
-                        src={product.imageSrc}
-                        alt={product.imageAlt}
-                        className='h-full w-full object-contain object-center lg:h-full lg:w-full'
-                      />
-                    </div>
-                    <div className='mt-4 flex justify-between'>
-                      <div>
-                        <h3 className='text-sm'>
-                          <button onClick={() => handleProductClick(product)}>
-                            <span
-                              aria-hidden='true'
-                              className='absolute inset-0'
-                            />
-                            {product.name}
-                          </button>
-                        </h3>
-                        <p className='mt-1 text-sm '>{product.color}</p>
-                      </div>
-                      <p className='text-sm font-medium '>
-                        {product.price}
-                        <small>
-                          <sup>DA</sup>
-                        </small>
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Section>
-        <Footer />
-      </div>
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog className='relative z-10' onClose={() => setOpen(false)}>
-          <Transition.Child
-            as={Fragment}
-            enter='ease-out duration-300'
-            enterFrom='opacity-0'
-            enterTo='opacity-100'
-            leave='ease-in duration-200'
-            leaveFrom='opacity-100'
-            leaveTo='opacity-0'
-          >
-            <div className='fixed inset-0 hidden transition-opacity md:block' />
-          </Transition.Child>
-          <div className='fixed inset-0 z-10 w-screen overflow-y-auto mt-24'>
-            <div className='flex min-h-full items-stretch justify-center text-center md:items-center md:px-2 lg:px-4'>
-              <Transition.Child
-                as={Fragment}
-                enter='ease-out duration-300'
-                enterFrom='opacity-0 translate-y-4 md:translate-y-0 md:scale-95'
-                enterTo='opacity-100 translate-y-0 md:scale-100'
-                leave='ease-in duration-200'
-                leaveFrom='opacity-100 translate-y-0 md:scale-100'
-                leaveTo='opacity-0 translate-y-4 md:translate-y-0 md:scale-95'
-              >
-                <Dialog.Panel className='flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl'>
-                  <div className='relative flex w-full items-center overflow-hidden bg-n-7 px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8'>
-                    <button
-                      type='button'
-                      className='absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8'
-                      onClick={() => setOpen(false)}
-                    >
-                      <span className='sr-only'>Close</span>
-                      <XMarkIcon className='h-6 w-6' aria-hidden='true' />
-                    </button>
-                    <div className='grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8'>
-                      <div className='aspect-h-3 aspect-w-2 overflow-hidden rounded-lg sm:col-span-4 lg:col-span-5'>
-                        <img
-                          src={selectedProduct.imageSrc}
-                          alt={selectedProduct.imageAlt}
-                          className='object-contain w-full h-[30rem]'
-                        />
-                      </div>
-                      <div className='sm:col-span-8 lg:col-span-7'>
-                        <h2 className='text-2xl font-bold sm:pr-12'>
-                          {selectedProduct.name}
-                        </h2>
-                        <p className='text-2xl'>{selectedProduct.price}</p>
-                        <button
-                          type='submit'
-                          className='mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-                        >
-                          Add to bag
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition.Root>
-      {/* <Transition.Root show={isOpen} as={Fragment}>
+      <Transition.Root show={isOpen} as={Fragment}>
         <Dialog className='relative z-50' onClose={toggleCart}>
           <Transition.Child
             as={Fragment}
@@ -247,7 +123,7 @@ const Shop = ({ openCart, setOpenCart }) => {
                             <button
                               type='button'
                               className='relative -m-2 p-2 text-gray-400 hover:text-gray-500'
-                              onClick={() => setOpenCart(false)}
+                              onClick={toggleCart}
                             >
                               <span className='absolute -inset-0.5' />
                               <span className='sr-only'>Close panel</span>
@@ -351,10 +227,9 @@ const Shop = ({ openCart, setOpenCart }) => {
             </div>
           </div>
         </Dialog>
-      </Transition.Root> */}
-      <ButtonGradient />
+      </Transition.Root>
     </>
   )
 }
 
-export default Shop
+export default cart

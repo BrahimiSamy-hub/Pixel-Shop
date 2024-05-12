@@ -2,8 +2,10 @@ import ButtonGradient from '../assets/svg/ButtonGradient'
 import Section from '../components/Section'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import { useCart } from '../context/CartContext'
 
 const Portfolio = () => {
+  const { isOpen, toggleCart } = useCart() // Use the context
   return (
     <>
       <div className='pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden'>

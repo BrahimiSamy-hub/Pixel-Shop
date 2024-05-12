@@ -1,4 +1,4 @@
-import PlusSvg from "./PlusSvg";
+import PlusSvg from './PlusSvg'
 
 const SectionSvg = ({ crossesOffset }) => {
   return (
@@ -15,7 +15,7 @@ const SectionSvg = ({ crossesOffset }) => {
         } pointer-events-none lg:block xl:right-[2.1875rem]`}
       />
     </>
-  );
-};
+  )
+}
 
-export default SectionSvg;
+export default SectionSvg

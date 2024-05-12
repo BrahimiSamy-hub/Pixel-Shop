@@ -99,6 +99,7 @@ import benefitIcon3 from './benefits/icon-3.svg'
 import benefitIcon4 from './benefits/icon-4.svg'
 import benefitImage2 from './benefits/image-2.png'
 import neonService from './benefits/neon1.png'
+import neon from './benefits/neon.svg'
 
 import discordBlack from './socials/discord.svg'
 import facebook from './socials/facebook.svg'
@@ -109,6 +110,7 @@ export {
   logo,
   // sliderlogo,
   p,
+  neon,
   neonService,
   hero1,
   Frosty,
