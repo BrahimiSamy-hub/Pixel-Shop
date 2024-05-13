@@ -2,7 +2,8 @@ import React, { Fragment, useState } from 'react'
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useCart } from '../context/CartContext' // Adjust path as necessary
-import shirt from '../assets/shirt1.png'
+import shirt from '../assets/shirt.jpg'
+import { Link } from 'react-router-dom'
 
 const products = [
   // Assuming each product has a unique ID
@@ -113,7 +114,7 @@ const cart = () => {
                   leaveTo='translate-x-full'
                 >
                   <Dialog.Panel className='pointer-events-auto w-screen max-w-md  '>
-                    <div className='flex h-full flex-col overflow-y-scroll bg-n-7 shadow-xl '>
+                    <div className='flex h-full flex-col bg-n-7 shadow-xl '>
                       <div className='flex-1 overflow-y-auto px-4 py-6 sm:px-6 '>
                         <div className='flex items-start justify-between '>
                           <Dialog.Title className='text-lg font-medium  '>
@@ -199,12 +200,13 @@ const cart = () => {
                           Shipping and taxes calculated at checkout.
                         </p>
                         <div className='mt-6'>
-                          <a
-                            href='#'
+                          <Link
+                            to='/checkout'
                             className='flex items-center justify-center rounded-md border border-transparent bg-color-1 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700'
+                            onClick={toggleCart}
                           >
                             Checkout
-                          </a>
+                          </Link>
                         </div>
                         <div className='mt-6 flex justify-center text-center text-sm text-gray-500'>
                           <p>
@@ -212,7 +214,7 @@ const cart = () => {
                             <button
                               type='button'
                               className='font-medium text-color-1  hover:text-indigo-500'
-                              onClick={() => setOpenCart(false)}
+                              onClick={toggleCart}
                             >
                               Continue Shopping
                               <span aria-hidden='true'> &rarr;</span>

@@ -5,7 +5,7 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Section from '../components/Section'
-import shirt from '../assets/shirt1.png'
+import shirt1 from '../assets/shirt.jpg'
 import ButtonGradient from '../assets/svg/ButtonGradient'
 import Cart from '../components/Cart'
 import { useCart } from '../context/CartContext' // Adjust path as necessary
@@ -18,74 +18,82 @@ const products = [
     id: 1,
     name: 'Basic Tee',
     href: '#',
-    imageSrc: shirt,
+    imageSrc: shirt1,
     imageAlt: "Front of men's Basic Tee in black.",
     price: '2500',
-    color: 'Black',
+    dimension: '60x40',
+    stock: false,
   },
   {
     id: 2,
     name: 'Classic Tee',
     href: '#',
-    imageSrc: shirt,
+    imageSrc: shirt1,
     imageAlt: "Front of men's Classic Tee in black.",
     price: '3000',
-    color: 'Grey',
+    dimension: '60x40',
+    stock: false,
   },
   {
-    id: 2,
+    id: 3,
     name: 'Classic Tee',
     href: '#',
-    imageSrc: shirt,
+    imageSrc: shirt1,
     imageAlt: "Front of men's Classic Tee in black.",
     price: '3000',
-    color: 'Grey',
+    dimension: '60x40',
+    stock: true,
   },
   {
-    id: 2,
+    id: 4,
     name: 'Classic Tee',
     href: '#',
-    imageSrc: shirt,
+    imageSrc: shirt1,
     imageAlt: "Front of men's Classic Tee in black.",
     price: '3000',
-    color: 'Grey',
+    dimension: '60x40',
+    stock: false,
   },
   {
-    id: 2,
+    id: 5,
     name: 'Classic Tee',
     href: '#',
-    imageSrc: shirt,
+    imageSrc: shirt1,
     imageAlt: "Front of men's Classic Tee in black.",
     price: '3000',
-    color: 'Grey',
+    dimension: '60x40',
+    stock: true,
   },
   {
-    id: 2,
+    id: 6,
     name: 'Classic Tee',
     href: '#',
-    imageSrc: shirt,
+    imageSrc: shirt1,
     imageAlt: "Front of men's Classic Tee in black.",
     price: '3000',
-    color: 'Grey',
+    dimension: '60x40',
+    stock: false,
   },
   {
-    id: 2,
+    id: 7,
     name: 'Classic Tee',
     href: '#',
-    imageSrc: shirt,
+    imageSrc: shirt1,
     imageAlt: "Front of men's Classic Tee in black.",
     price: '3000',
-    color: 'Grey',
+    dimension: '60x40',
+    stock: true,
   },
 
   {
-    id: 3,
+    id: 8,
     name: 'Premium Tee',
     href: '#',
-    imageSrc: shirt,
+    imageSrc: shirt1,
     imageAlt: "Front of men's Premium Tee in black.",
     price: '3500',
-    color: 'White',
+    dimension: '60x40',
+    stock: true,
   },
 ]
 const Shop = ({ openCart, setOpenCart }) => {
@@ -110,14 +118,14 @@ const Shop = ({ openCart, setOpenCart }) => {
           <div className='container relative'>
             <div className='mx-auto max-w-2xl px-4 sm:px-6 sm:pb-24 lg:max-w-7xl lg:px-8'>
               <h2 className='text-2xl font-bold tracking-tight '>Our Shop</h2>
-              <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
+              <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8'>
                 {products.map((product) => (
                   <div key={product.id} className='group relative'>
-                    <div className='aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-80 border border-[#26242C] p-4'>
+                    <div className='aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:opacity-75 lg:h-60 border border-[#f18a28] '>
                       <img
                         src={product.imageSrc}
                         alt={product.imageAlt}
-                        className='h-full w-full object-contain object-center lg:h-full lg:w-full'
+                        className='h-full w-full object-fill object-center lg:h-full lg:w-full'
                       />
                     </div>
                     <div className='mt-4 flex justify-between'>
@@ -131,14 +139,25 @@ const Shop = ({ openCart, setOpenCart }) => {
                             {product.name}
                           </button>
                         </h3>
-                        <p className='mt-1 text-sm '>{product.color}</p>
+                        <div className='flex justify-between'>
+                          <p className='mt-1 text-sm '>{product.dimension}</p>
+                        </div>
                       </div>
-                      <p className='text-sm font-medium '>
-                        {product.price}
-                        <small>
-                          <sup>DA</sup>
-                        </small>
-                      </p>
+                      <div className='flex flex-col'>
+                        <p className='text-sm font-medium text-right'>
+                          {product.price}
+                          <small>
+                            <sup>DA</sup>
+                          </small>
+                        </p>
+                        <p
+                          className={`text-sm ${
+                            product.stock ? 'text-green-500' : 'text-red-500'
+                          }`}
+                        >
+                          {product.stock ? 'In Stock' : 'Out of Stock'}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -187,7 +206,8 @@ const Shop = ({ openCart, setOpenCart }) => {
                         <img
                           src={selectedProduct.imageSrc}
                           alt={selectedProduct.imageAlt}
-                          className='object-contain w-full h-[30rem]'
+                          className='object-fill w-full '
+                          loading='lazy'
                         />
                       </div>
                       <div className='sm:col-span-8 lg:col-span-7'>
@@ -291,7 +311,7 @@ const Shop = ({ openCart, setOpenCart }) => {
                                         </p>
                                       </div>
                                       <p className='mt-1 text-sm text-gray-500'>
-                                        {product.color}
+                                        {product.dimension}
                                       </p>
                                     </div>
                                     <div className='flex flex-1 items-end justify-between text-sm'>
@@ -325,7 +345,7 @@ const Shop = ({ openCart, setOpenCart }) => {
                         <div className='mt-6'>
                           <a
                             href='#'
-                            className='flex items-center justify-center rounded-md border border-transparent bg-color-1 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700'
+                            className='flex items-center justify-center rounded-md border border-transparent bg-dimension-1 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700'
                           >
                             Checkout
                           </a>
@@ -335,7 +355,7 @@ const Shop = ({ openCart, setOpenCart }) => {
                             or{' '}
                             <button
                               type='button'
-                              className='font-medium text-color-1  hover:text-indigo-500'
+                              className='font-medium text-dimension-1  hover:text-indigo-500'
                               onClick={() => setOpenCart(false)}
                             >
                               Continue Shopping

@@ -14,6 +14,7 @@ import Shop from '../src/pages/Shop'
 import Portfolio from '../src/pages/Portfolio'
 import ScrollToTop from './utils/ScrollToTop'
 import { CartProvider } from './context/CartContext'
+import Checkout from './pages/Checkout'
 const App = () => {
   useEffect(() => {
     AOS.init({
@@ -36,6 +37,7 @@ const App = () => {
           <Route path='/dev' element={<Dev />} />
           <Route path='/infographie' element={<Infographie />} />
           <Route path='/neon' element={<Neon />} />
+          <Route path='/checkout' element={<Checkout />} />
         </Routes>
       </CartProvider>
     </Router>

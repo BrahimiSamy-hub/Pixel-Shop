@@ -98,6 +98,7 @@
 // export default Header
 
 import { brainwave, logo, logowhite } from '../assets'
+import { FaCartShopping } from 'react-icons/fa6'
 import { navigation } from '../constants'
 import { HamburgerMenu } from './design/Header'
 import { useLocation } from 'react-router-dom'
@@ -165,6 +166,14 @@ const Header = () => {
                 {item.title}
               </Link>
             ))}
+            <div>
+              <Link to='/shop'>
+                <Button className='flex lg:hidden mt-6'>Shop</Button>
+              </Link>
+              <Button className='lg:hidden ml-24' onClick={toggleCart}>
+                <FaCartShopping size={25} color='#F18A27' />
+              </Button>
+            </div>
           </div>
 
           <HamburgerMenu />
@@ -172,8 +181,17 @@ const Header = () => {
         <Link to='/shop'>
           <Button className='hidden lg:flex'>Shop</Button>
         </Link>
-        <button className='ml-6 mr-2 hidden lg:flex' onClick={toggleCart}>
-          Cart
+        {/* <button className='ml-6 mr-2 hidden lg:flex' onClick={toggleCart}>
+          <FaCartShopping size={50} color='#F18A27' />
+        </button> */}
+        <button
+          className='ml-6 mr-2 relative hidden lg:flex'
+          onClick={toggleCart}
+        >
+          <FaCartShopping size={50} color='#F18A27' />
+          <span className='absolute -top-2 -right-3 flex items-center justify-center w-6 h-6 font-bold text-[#F18A28] bg-white rounded-full'>
+            0
+          </span>
         </button>
         <Button className='ml-auto lg:hidden' onClick={toggleNavigation}>
           <MenuSvg openNavigation={openNavigation} />
