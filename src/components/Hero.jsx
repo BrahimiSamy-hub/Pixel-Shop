@@ -10,6 +10,7 @@ import Notification from './Notification'
 import CompanyLogos from './CompanyLogos'
 import { Link } from 'react-router-dom'
 import video from '../assets/videos/animation.mp4'
+import hero2 from '../assets/hero/hero1.png'
 
 const Hero = () => {
   const parallaxRef = useRef(null)

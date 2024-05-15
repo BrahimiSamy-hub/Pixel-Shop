@@ -16,70 +16,6 @@ const products = [
     price: '2500',
     color: 'Black',
   },
-  {
-    id: 2,
-    name: 'Classic Tee',
-    href: '#',
-    imageSrc: shirt,
-    imageAlt: "Front of men's Classic Tee in black.",
-    price: '3000',
-    color: 'Grey',
-  },
-  {
-    id: 3,
-    name: 'Classic Tee',
-    href: '#',
-    imageSrc: shirt,
-    imageAlt: "Front of men's Classic Tee in black.",
-    price: '3000',
-    color: 'Grey',
-  },
-  {
-    id: 4,
-    name: 'Classic Tee',
-    href: '#',
-    imageSrc: shirt,
-    imageAlt: "Front of men's Classic Tee in black.",
-    price: '3000',
-    color: 'Grey',
-  },
-  {
-    id: 5,
-    name: 'Classic Tee',
-    href: '#',
-    imageSrc: shirt,
-    imageAlt: "Front of men's Classic Tee in black.",
-    price: '3000',
-    color: 'Grey',
-  },
-  {
-    id: 6,
-    name: 'Classic Tee',
-    href: '#',
-    imageSrc: shirt,
-    imageAlt: "Front of men's Classic Tee in black.",
-    price: '3000',
-    color: 'Grey',
-  },
-  {
-    id: 7,
-    name: 'Classic Tee',
-    href: '#',
-    imageSrc: shirt,
-    imageAlt: "Front of men's Classic Tee in black.",
-    price: '3000',
-    color: 'Grey',
-  },
-
-  {
-    id: 8,
-    name: 'Premium Tee',
-    href: '#',
-    imageSrc: shirt,
-    imageAlt: "Front of men's Premium Tee in black.",
-    price: '3500',
-    color: 'White',
-  },
 ]
 
 const cart = () => {
@@ -89,18 +25,6 @@ const cart = () => {
     <>
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog className='relative z-50' onClose={toggleCart}>
-          <Transition.Child
-            as={Fragment}
-            enter='ease-in-out duration-500'
-            enterFrom='opacity-0'
-            enterTo='opacity-100'
-            leave='ease-in-out duration-500'
-            leaveFrom='opacity-100'
-            leaveTo='opacity-0'
-          >
-            <div className='fixed inset-0 ' />
-          </Transition.Child>
-
           <div className='fixed inset-0 overflow-hidden '>
             <div className='absolute inset-0 overflow-hidden '>
               <div className='pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 '>

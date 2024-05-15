@@ -13,15 +13,13 @@ const Home = () => {
   return (
     <>
       <div className='pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden'>
-        <Header />
         <Hero />
         <Benefits />
-        <Collaboration />
-        <Pricing />
-        <Services />
+        {/* <Collaboration /> */}
+        {/* <Pricing /> */}
+        {/* <Services /> */}
         {/* <Roadmap /> */}
         <Contact />
-        <Footer />
       </div>
 
       <ButtonGradient />
