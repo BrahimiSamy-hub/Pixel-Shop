@@ -26,7 +26,7 @@ import background from './background.jpg'
 
 import curve from './hero/curve.svg'
 import robot from './hero/robot.jpg'
-import smoke from './hero/smoke.jpeg'
+// import smoke from './hero/smoke.jpeg'
 import hero1 from './hero/Hero.jpg'
 import heroBackground from './hero/hero-background.jpg'
 
@@ -106,7 +106,100 @@ import facebook from './socials/facebook.svg'
 import instagram from './socials/instagram.svg'
 import telegram from './socials/telegram.svg'
 import twitter from './socials/twitter.svg'
+
+import loup from './heros/loup.png'
+import card from './cards/2.jpg'
+import cat from './heros/cat.jpg'
+import donut from './heros/donut.jpg'
+import joker from './heros/joker.jpg'
+import weed from './heros/weed.jpg'
+import batman from './heros/batman.jpg'
+import spiderman from './heros/spiderman.jpg'
+import superman from './heros/superman.jpg'
+import thanos from './heros/thanos.jpg'
+import smoke from './heros/smoke.jpg'
+import mario from './heros/mario.jpg'
+import manette from './heros/manette.jpg'
+import gum from './heros/gum.jpg'
+import america from './heros/america.jpg'
+import thanos2 from './heros/thanos2.jpg'
+import weedD from './heros/weed.png'
+import catD from './heros/cat.png'
+import donutD from './heros/donut.png'
+import manetteD from './heros/manette.png'
+import batmanD from './heros/batman.png'
+import spidermanD from './heros/spiderman.png'
+import supermanD from './heros/superman.png'
+import gumD from './heros/gum.png'
+import americaD from './heros/america.png'
+import jokerD from './heros/jokerD.jpg'
+import thanosDD from './heros/thanosD.jpg'
+import smokeD from './heros/smoke.png'
+import marioD from './heros/mario.png'
+import thanosD from './heros/thanos.png'
+
+import carte1 from './cards/1.jpg'
+import carte2 from './cards/2.jpg'
+import carte3 from './cards/3.jpg'
+import carte4 from './cards/4.jpg'
+import carte5 from './cards/5.jpg'
+import carte6 from './cards/6.jpg'
+import carte7 from './cards/7.jpg'
+import carte8 from './cards/8.jpg'
+import carte9 from './cards/9.jpg'
+import carte10 from './cards/10.jpg'
+import carte11 from './cards/11.jpg'
+import carte12 from './cards/12.jpg'
+import carte13 from './cards/13.jpg'
+import carte14 from './cards/14.jpg'
+import carte15 from './cards/15.jpg'
+import carte1D from './cards/carte1.jpg'
+import carte2D from './cards/carte2.jpg'
+import carte3D from './cards/carte3.jpg'
+import carte4D from './cards/carte4.jpg'
+import carte5D from './cards/carte5.jpg'
+import carte6D from './cards/carte6.jpg'
+import carte7D from './cards/carte7.jpg'
+import carte8D from './cards/carte8.jpg'
+import carte9D from './cards/carte9.jpg'
+import carte10D from './cards/carte10.jpg'
+import carte11D from './cards/carte11.jpg'
+import carte12D from './cards/carte12.jpg'
+import carte13D from './cards/carte13.jpg'
+import carte14D from './cards/carte14.jpg'
+import carte15D from './cards/carte15.jpg'
+
 export {
+  carte1,
+  carte2,
+  carte3,
+  carte4,
+  carte5,
+  carte6,
+  carte7,
+  carte8,
+  carte9,
+  carte10,
+  carte11,
+  carte12,
+  carte13,
+  carte14,
+  carte15,
+  carte1D,
+  carte2D,
+  carte3D,
+  carte4D,
+  carte5D,
+  carte6D,
+  carte7D,
+  carte8D,
+  carte9D,
+  carte10D,
+  carte11D,
+  carte12D,
+  carte13D,
+  carte14D,
+  carte15D,
   logo,
   // sliderlogo,
   p,
@@ -129,6 +222,7 @@ export {
   Oppo,
   NewtechCeram,
   Plaza,
+  smoke,
   Pokébowl,
   Securipcro,
   SoniaAttalah,
@@ -172,7 +266,7 @@ export {
   raindrop,
   slack,
   service,
-  smoke,
+  // smoke,
   service1,
   service2,
   service3,
@@ -206,4 +300,33 @@ export {
   instagram,
   telegram,
   twitter,
+  loup,
+  card,
+  cat,
+  donut,
+  joker,
+  weed,
+  batman,
+  spiderman,
+  superman,
+  thanos,
+  mario,
+  manette,
+  gum,
+  america,
+  thanos2,
+  weedD,
+  catD,
+  donutD,
+  manetteD,
+  batmanD,
+  spidermanD,
+  supermanD,
+  gumD,
+  americaD,
+  jokerD,
+  thanosDD,
+  smokeD,
+  marioD,
+  thanosD,
 }

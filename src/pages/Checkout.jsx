@@ -1,450 +1,297 @@
-import ButtonGradient from '../assets/svg/ButtonGradient'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import Section from '../components/Section'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { FaCircleCheck } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
+import shirt from '../assets/heros/america.png'
+import ButtonGradient from '../assets/svg/ButtonGradient'
+
+const products = [
+  {
+    id: 1,
+    name: 'America',
+    href: '#',
+    quantity: '1',
+    imageSrc: shirt,
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '3000',
+    color: 'Black',
+  },
+  {
+    id: 1,
+    name: 'America',
+    href: '#',
+    quantity: '2',
+    imageSrc: shirt,
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: '3200',
+    color: 'Black',
+  },
+]
+
 const Checkout = () => {
+  const [isOrderSuccessful, setIsOrderSuccessful] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+
+  const onSubmit = (data) => {
+    console.log(data)
+    setIsOrderSuccessful(true)
+    toast.success('Order completed successfully!')
+  }
+
   return (
     <>
-      <div className='pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden'>
-        <Header />
-        <Section
-          className='pt-[12rem] -mt-[5.25rem] container'
-          crosses
-          crossesOffset='lg:translate-y-[5.25rem]'
-          customPaddings
-        >
-          <form>
-            <div className='space-y-12 '>
-              <div className='border-b border-gray-900/10 pb-12'>
-                <h2 className='text-base font-semibold leading-7 text-gray-900'>
-                  Profile
-                </h2>
-                <p className='mt-1 text-sm leading-6 text-gray-600'>
-                  This information will be displayed publicly so be careful what
-                  you share.
-                </p>
-
-                <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-                  <div className='sm:col-span-4'>
-                    <label
-                      htmlFor='username'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Username
-                    </label>
-                    <div className='mt-2'>
-                      <div className='flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md'>
-                        <span className='flex select-none items-center pl-3 text-gray-500 sm:text-sm'>
-                          workcation.com/
-                        </span>
-                        <input
-                          type='text'
-                          name='username'
-                          id='username'
-                          autoComplete='username'
-                          className='block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
-                          placeholder='janesmith'
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='col-span-full'>
-                    <label
-                      htmlFor='about'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      About
-                    </label>
-                    <div className='mt-2'>
-                      <textarea
-                        id='about'
-                        name='about'
-                        rows={3}
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                        defaultValue={''}
-                      />
-                    </div>
-                    <p className='mt-3 text-sm leading-6 text-gray-600'>
-                      Write a few sentences about yourself.
-                    </p>
-                  </div>
-
-                  <div className='col-span-full'>
-                    <label
-                      htmlFor='photo'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Photo
-                    </label>
-                    <div className='mt-2 flex items-center gap-x-3'>
-                      <UserCircleIcon
-                        className='h-12 w-12 text-gray-300'
-                        aria-hidden='true'
-                      />
-                      <button
-                        type='button'
-                        className='rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
-                      >
-                        Change
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className='col-span-full'>
-                    <label
-                      htmlFor='cover-photo'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Cover photo
-                    </label>
-                    <div className='mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10'>
-                      <div className='text-center'>
-                        <PhotoIcon
-                          className='mx-auto h-12 w-12 text-gray-300'
-                          aria-hidden='true'
-                        />
-                        <div className='mt-4 flex text-sm leading-6 text-gray-600'>
-                          <label
-                            htmlFor='file-upload'
-                            className='relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500'
-                          >
-                            <span>Upload a file</span>
-                            <input
-                              id='file-upload'
-                              name='file-upload'
-                              type='file'
-                              className='sr-only'
-                            />
-                          </label>
-                          <p className='pl-1'>or drag and drop</p>
-                        </div>
-                        <p className='text-xs leading-5 text-gray-600'>
-                          PNG, JPG, GIF up to 10MB
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='border-b border-gray-900/10 pb-12'>
-                <h2 className='text-base font-semibold leading-7 text-gray-900'>
-                  Personal Information
-                </h2>
-                <p className='mt-1 text-sm leading-6 text-gray-600'>
-                  Use a permanent address where you can receive mail.
-                </p>
-
-                <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
-                  <div className='sm:col-span-3'>
-                    <label
-                      htmlFor='first-name'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      First name
-                    </label>
-                    <div className='mt-2'>
-                      <input
-                        type='text'
-                        name='first-name'
-                        id='first-name'
-                        autoComplete='given-name'
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-
-                  <div className='sm:col-span-3'>
-                    <label
-                      htmlFor='last-name'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Last name
-                    </label>
-                    <div className='mt-2'>
-                      <input
-                        type='text'
-                        name='last-name'
-                        id='last-name'
-                        autoComplete='family-name'
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-
-                  <div className='sm:col-span-4'>
-                    <label
-                      htmlFor='email'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Email address
-                    </label>
-                    <div className='mt-2'>
-                      <input
-                        id='email'
-                        name='email'
-                        type='email'
-                        autoComplete='email'
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-
-                  <div className='sm:col-span-3'>
-                    <label
-                      htmlFor='country'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Country
-                    </label>
-                    <div className='mt-2'>
-                      <select
-                        id='country'
-                        name='country'
-                        autoComplete='country-name'
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6'
-                      >
-                        <option>United States</option>
-                        <option>Canada</option>
-                        <option>Mexico</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className='col-span-full'>
-                    <label
-                      htmlFor='street-address'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      Street address
-                    </label>
-                    <div className='mt-2'>
-                      <input
-                        type='text'
-                        name='street-address'
-                        id='street-address'
-                        autoComplete='street-address'
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-
-                  <div className='sm:col-span-2 sm:col-start-1'>
-                    <label
-                      htmlFor='city'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      City
-                    </label>
-                    <div className='mt-2'>
-                      <input
-                        type='text'
-                        name='city'
-                        id='city'
-                        autoComplete='address-level2'
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-
-                  <div className='sm:col-span-2'>
-                    <label
-                      htmlFor='region'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      State / Province
-                    </label>
-                    <div className='mt-2'>
-                      <input
-                        type='text'
-                        name='region'
-                        id='region'
-                        autoComplete='address-level1'
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-
-                  <div className='sm:col-span-2'>
-                    <label
-                      htmlFor='postal-code'
-                      className='block text-sm font-medium leading-6 text-gray-900'
-                    >
-                      ZIP / Postal code
-                    </label>
-                    <div className='mt-2'>
-                      <input
-                        type='text'
-                        name='postal-code'
-                        id='postal-code'
-                        autoComplete='postal-code'
-                        className='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='border-b border-gray-900/10 pb-12'>
-                <h2 className='text-base font-semibold leading-7 text-gray-900'>
-                  Notifications
-                </h2>
-                <p className='mt-1 text-sm leading-6 text-gray-600'>
-                  We'll always let you know about important changes, but you
-                  pick what else you want to hear about.
-                </p>
-
-                <div className='mt-10 space-y-10'>
-                  <fieldset>
-                    <legend className='text-sm font-semibold leading-6 text-gray-900'>
-                      By Email
-                    </legend>
-                    <div className='mt-6 space-y-6'>
-                      <div className='relative flex gap-x-3'>
-                        <div className='flex h-6 items-center'>
-                          <input
-                            id='comments'
-                            name='comments'
-                            type='checkbox'
-                            className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600'
-                          />
-                        </div>
-                        <div className='text-sm leading-6'>
-                          <label
-                            htmlFor='comments'
-                            className='font-medium text-gray-900'
-                          >
-                            Comments
-                          </label>
-                          <p className='text-gray-500'>
-                            Get notified when someones posts a comment on a
-                            posting.
-                          </p>
-                        </div>
-                      </div>
-                      <div className='relative flex gap-x-3'>
-                        <div className='flex h-6 items-center'>
-                          <input
-                            id='candidates'
-                            name='candidates'
-                            type='checkbox'
-                            className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600'
-                          />
-                        </div>
-                        <div className='text-sm leading-6'>
-                          <label
-                            htmlFor='candidates'
-                            className='font-medium text-gray-900'
-                          >
-                            Candidates
-                          </label>
-                          <p className='text-gray-500'>
-                            Get notified when a candidate applies for a job.
-                          </p>
-                        </div>
-                      </div>
-                      <div className='relative flex gap-x-3'>
-                        <div className='flex h-6 items-center'>
-                          <input
-                            id='offers'
-                            name='offers'
-                            type='checkbox'
-                            className='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600'
-                          />
-                        </div>
-                        <div className='text-sm leading-6'>
-                          <label
-                            htmlFor='offers'
-                            className='font-medium text-gray-900'
-                          >
-                            Offers
-                          </label>
-                          <p className='text-gray-500'>
-                            Get notified when a candidate accepts or rejects an
-                            offer.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
-                  <fieldset>
-                    <legend className='text-sm font-semibold leading-6 text-gray-900'>
-                      Push Notifications
-                    </legend>
-                    <p className='mt-1 text-sm leading-6 text-gray-600'>
-                      These are delivered via SMS to your mobile phone.
-                    </p>
-                    <div className='mt-6 space-y-6'>
-                      <div className='flex items-center gap-x-3'>
-                        <input
-                          id='push-everything'
-                          name='push-notifications'
-                          type='radio'
-                          className='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
-                        />
-                        <label
-                          htmlFor='push-everything'
-                          className='block text-sm font-medium leading-6 text-gray-900'
-                        >
-                          Everything
-                        </label>
-                      </div>
-                      <div className='flex items-center gap-x-3'>
-                        <input
-                          id='push-email'
-                          name='push-notifications'
-                          type='radio'
-                          className='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
-                        />
-                        <label
-                          htmlFor='push-email'
-                          className='block text-sm font-medium leading-6 text-gray-900'
-                        >
-                          Same as email
-                        </label>
-                      </div>
-                      <div className='flex items-center gap-x-3'>
-                        <input
-                          id='push-nothing'
-                          name='push-notifications'
-                          type='radio'
-                          className='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
-                        />
-                        <label
-                          htmlFor='push-nothing'
-                          className='block text-sm font-medium leading-6 text-gray-900'
-                        >
-                          No push notifications
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
-              </div>
-            </div>
-
-            <div className='mt-6 flex items-center justify-end gap-x-6'>
-              <button
-                type='button'
-                className='text-sm font-semibold leading-6 text-gray-900'
-              >
-                Cancel
+      <Section
+        className='pt-[8rem] container min-h-screen mb-20'
+        crosses
+        crossesOffset='lg:translate-y-[5.25rem]'
+        customPaddings
+      >
+        <h1 className='h1 text-center mb-10'> Submit Order</h1>
+        <div className='flex flex-col gap-10 sm:flex-row '>
+          {isOrderSuccessful ? (
+            <div className='w-full min-h-[450px] border p-4 rounded-xl flex flex-col justify-center items-center gap-6'>
+              <FaCircleCheck color='green' size={80} />
+              <h2 className='font-manrope font-bold text-4xl leading-10  text-center uppercase'>
+                Order completed successfully
+              </h2>
+              <p className='font-normal text-lg leading-8 text-gray-500  text-center uppercase'>
+                Thank you!
+              </p>
+              <button className='border border-[#F17A28] p-2 rounded bg-[#F17A28] hover:opacity-75'>
+                <Link to='/shop'> Go Back to shop</Link>
               </button>
+            </div>
+          ) : (
+            <form
+              className='w-full border p-4 rounded-xl'
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              <h2 className='text-2xl font-semibold mb-4 text-center'>
+                Checkout
+              </h2>
+
+              <div className='mb-4'>
+                <label
+                  className='block mb-2 text-sm font-medium'
+                  htmlFor='name'
+                >
+                  Name<span className='text-red-500'>*</span>
+                </label>
+                <input
+                  type='text'
+                  id='name'
+                  {...register('name', { required: 'Name is required' })}
+                  className={`w-full px-4 py-3 border rounded-md focus:border-white ${
+                    errors.name ? 'border-red-500' : ''
+                  }`}
+                  placeholder='Enter Name'
+                />
+                {errors.name && (
+                  <p className='text-red-500 text-sm'>{errors.name.message}</p>
+                )}
+              </div>
+
+              <div className='mb-4'>
+                <label
+                  className='block mb-2 text-sm font-medium'
+                  htmlFor='mobileNumber'
+                >
+                  Mobile Number<span className='text-red-500'>*</span>
+                </label>
+                <input
+                  type='tel'
+                  id='mobileNumber'
+                  {...register('mobileNumber', {
+                    required: 'Mobile Number is required',
+                    pattern: {
+                      value: /^(05|06|07)[0-9]{8}$/,
+                      message: 'Invalid mobile number format',
+                    },
+                  })}
+                  className={`w-full px-4 py-3 border rounded-md focus:border-white ${
+                    errors.mobileNumber ? 'border-red-500' : ''
+                  }`}
+                  placeholder='Enter Mobile Number'
+                />
+                {errors.mobileNumber && (
+                  <p className='text-red-500 text-sm'>
+                    {errors.mobileNumber.message}
+                  </p>
+                )}
+              </div>
+
+              <div className='mb-4'>
+                <label
+                  className='block mb-2 text-sm font-medium'
+                  htmlFor='city'
+                >
+                  City<span className='text-red-500'>*</span>
+                </label>
+                <select
+                  id='city'
+                  {...register('city', { required: 'City is required' })}
+                  defaultValue=''
+                  className={`px-3 py-3 border rounded-md focus:border-white ${
+                    errors.city ? 'border-red-500' : ''
+                  }`}
+                >
+                  <option value='' disabled>
+                    Select a city
+                  </option>
+                  <option value='City1'>City1</option>
+                  <option value='City2'>City2</option>
+                  <option value='City3'>City3</option>
+                </select>
+                {errors.city && (
+                  <p className='text-red-500 text-sm'>{errors.city.message}</p>
+                )}
+              </div>
+
+              <div className='mb-4'>
+                <label
+                  className='block mb-2 text-sm font-medium'
+                  htmlFor='method'
+                >
+                  Shipping Method<span className='text-red-500'>*</span>
+                </label>
+                <select
+                  id='method'
+                  {...register('method', {
+                    required: 'Shipping Method is required',
+                  })}
+                  defaultValue=''
+                  className={`px-3 py-3 border rounded-md focus:border-white ${
+                    errors.method ? 'border-red-500' : ''
+                  }`}
+                >
+                  <option value='' disabled>
+                    Select a shipping method
+                  </option>
+                  <option value='Desk'>Desk</option>
+                  <option value='Home'>Home</option>
+                </select>
+                {errors.method && (
+                  <p className='text-red-500 text-sm'>
+                    {errors.method.message}
+                  </p>
+                )}
+              </div>
+
               <button
                 type='submit'
-                className='rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                className='w-full py-3 bg-[#F17A28] text-white font-semibold rounded-md hover:opacity-75'
               >
-                Save
+                Submit
               </button>
-            </div>
-          </form>
-        </Section>
-        <Footer />
-      </div>
+            </form>
+          )}
+          <div className='w-full h-[498px] border p-4 rounded-xl'>
+            <h2 className='text-2xl font-semibold mb-4 text-center'>Cart</h2>
+            <div className='mt-8'>
+              <div className='flow-root'>
+                <ul
+                  role='list'
+                  className='-my-6 divide-y divide-gray-200 min-h-[320px] overflow-y-auto'
+                >
+                  {products.map((product) => (
+                    <li key={product.id} className='flex py-6'>
+                      <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
+                        <img
+                          loading='lazy'
+                          src={product.imageSrc}
+                          alt={product.imageAlt}
+                          className='h-full w-full object-cover object-center'
+                        />
+                      </div>
 
+                      <div className='ml-4 flex flex-1 flex-col'>
+                        <div>
+                          <div className='flex justify-between text-base font-medium '>
+                            <h3>{product.name}</h3>
+                            <p className='ml-4'>
+                              {product.price}
+                              <small>
+                                <sup>DA</sup>
+                              </small>
+                            </p>
+                          </div>
+                          <p className='mt-1 text-sm text-gray-500'>
+                            {product.color}
+                          </p>
+                        </div>
+                        <div className='flex flex-1 items-end justify-between text-sm'>
+                          <p className='text-gray-500'>
+                            Qty x{product.quantity}
+                          </p>
+
+                          <div className='flex'>
+                            <button
+                              type='button'
+                              className='font-medium text-red-500 hover:text-red-300'
+                            >
+                              Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className='border-t border-gray-200 px-4 py-6 sm:px-6 mt-10'>
+                  <div className='flex justify-between text-base font-medium '>
+                    <p>Subtotal</p>
+                    <p>
+                      3500
+                      <small className='ml-1'>
+                        <sup>DA </sup>
+                      </small>
+                    </p>
+                  </div>
+                  <div className='flex justify-between text-base font-medium '>
+                    <p>Delivery</p>
+                    <p>
+                      400
+                      <small className='ml-1'>
+                        <sup>DA </sup>
+                      </small>
+                    </p>
+                  </div>
+                  <hr />
+                  <div className='flex justify-between text-base font-medium '>
+                    <p>Total</p>
+                    <p>
+                      3900
+                      <small className='ml-1'>
+                        <sup>DA </sup>
+                      </small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
       <ButtonGradient />
+      <ToastContainer
+        position='bottom-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='dark'
+      />
     </>
   )
 }

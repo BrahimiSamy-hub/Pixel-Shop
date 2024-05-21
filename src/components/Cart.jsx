@@ -4,6 +4,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useCart } from '../context/CartContext' // Adjust path as necessary
 import shirt from '../assets/shirt.jpg'
 import { Link } from 'react-router-dom'
+import { FaTrashAlt } from 'react-icons/fa'
 
 const products = [
   // Assuming each product has a unique ID
@@ -70,7 +71,8 @@ const cart = () => {
                                 <li key={product.id} className='flex py-6'>
                                   <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
                                     <img
-                                      src={product.imageSrc}
+                                      loading='lazy'
+                                      src=''
                                       alt={product.imageAlt}
                                       className='h-full w-full object-cover object-center'
                                     />
@@ -85,7 +87,7 @@ const cart = () => {
                                           </a>
                                         </h3>
                                         <p className='ml-4'>
-                                          {product.price}
+                                          {product.price}{' '}
                                           <small>
                                             <sup>DA</sup>
                                           </small>
@@ -101,9 +103,9 @@ const cart = () => {
                                       <div className='flex'>
                                         <button
                                           type='button'
-                                          className='font-medium text-red-500 hover:text-red-300'
+                                          className='font-medium text-red-500 hover:text-red-300 border p-1 rounded-md border-red-500 hover:border-red-300'
                                         >
-                                          Remove
+                                          <FaTrashAlt size={25} />
                                         </button>
                                       </div>
                                     </div>
@@ -118,7 +120,12 @@ const cart = () => {
                       <div className='border-t border-gray-200 px-4 py-6 sm:px-6'>
                         <div className='flex justify-between text-base font-medium '>
                           <p>Subtotal</p>
-                          <p>$262.00</p>
+                          <p>
+                            262.00{' '}
+                            <small>
+                              <sup c>DA</sup>
+                            </small>
+                          </p>
                         </div>
                         <p className='mt-0.5 text-sm text-gray-500'>
                           Shipping and taxes calculated at checkout.

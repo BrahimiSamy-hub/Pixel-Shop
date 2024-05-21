@@ -151,7 +151,7 @@ const Header = () => {
             openNavigation ? 'flex' : 'hidden'
           } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
         >
-          <div className='relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row'>
+          <div className='relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row lg:pr-20'>
             {navigation.map((item) => (
               <Link
                 key={item.id}
@@ -166,24 +166,27 @@ const Header = () => {
                 {item.title}
               </Link>
             ))}
-            <div>
-              <Link to='/shop'>
+
+            {/* <Link to='/shop'>
                 <Button className='flex lg:hidden mt-6'>Shop</Button>
-              </Link>
-              <Button className='lg:hidden ml-24' onClick={toggleCart}>
-                <FaCartShopping size={25} color='#F18A27' />
-              </Button>
-            </div>
+              </Link> */}
+            <Button className='lg:hidden ' onClick={toggleCart}>
+              <FaCartShopping size={25} color='#F18A27' />
+            </Button>
           </div>
 
           <HamburgerMenu />
         </nav>
-        <Link to='/shop'>
+
+        {/* <Link to='/shop'>
           <Button className='hidden lg:flex'>Shop</Button>
-        </Link>
+        </Link> */}
         {/* <button className='ml-6 mr-2 hidden lg:flex' onClick={toggleCart}>
           <FaCartShopping size={50} color='#F18A27' />
         </button> */}
+        {/* <Button className='lg:hidden ' onClick={toggleCart}>
+          <FaCartShopping size={25} color='#F18A27' />
+        </Button> */}
         <button
           className='ml-6 mr-2 relative hidden lg:flex'
           onClick={toggleCart}
@@ -197,7 +200,7 @@ const Header = () => {
           <MenuSvg openNavigation={openNavigation} />
         </Button>
       </div>
-      <Cart />
+      {/* <Cart /> */}
     </div>
   )
 }

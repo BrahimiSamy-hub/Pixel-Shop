@@ -39,6 +39,7 @@ const Benefits = () => {
                   <p className='body-2 mb-6 text-n-3'>{item.text}</p>
                   <div className='flex items-center mt-auto object-contain'>
                     <img
+                      loading='lazy'
                       src={item.iconUrl}
                       width={48}
                       height={48}
@@ -60,6 +61,7 @@ const Benefits = () => {
                   <div className='absolute inset-0 opacity-10 transition-opacity hover:opacity-30'>
                     {item.imageUrl && (
                       <img
+                        loading='lazy'
                         src={item.imageUrl}
                         width={380}
                         height={362}

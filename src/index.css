@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Puritan:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&family=Puritan:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,6 +17,7 @@
 
 * {
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 @layer base {
@@ -27,6 +30,11 @@
   @apply rotate-[45deg];
 }
 
+.font {
+  font-family: 'Puritan', sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
 .rotate-90 {
   @apply rotate-[90deg];
 }

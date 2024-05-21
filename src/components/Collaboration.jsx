@@ -9,38 +9,43 @@ const Collaboration = () => {
   return (
     <Section crosses id='portfolio'>
       <div className='container lg:flex'>
-        <div className='max-w-[25rem]'>
+        <div className='max-w-[25rem] flex flex-col'>
           <h2 className='h2 mb-4 md:mb-8 text-center'>Our Portfolio</h2>
 
-          <ul className='max-w-[22rem] mb-10 md:mb-14'>
+          <ul className='max-w-[22rem] mb-10 md:mb-14 grid grid-cols-4 gap-1'>
             {collabContent.map((item) => (
-              <li className='mb-3 py-3' key={item.id}>
-                <div className='flex items-center'>
-                  <img src={check} width={24} height={24} alt='check' />
+              <li className='mb-3 py-3 col-span-2 ' key={item.id}>
+                <div className='flex items-center '>
+                  <img
+                    src={check}
+                    width={24}
+                    height={24}
+                    alt='check'
+                    loading='lazy'
+                  />
                   <h6 className='body-2 ml-5'>{item.title}</h6>
                 </div>
-                {item.text && (
-                  <p className='body-2 mt-3 text-n-4'>{item.text}</p>
-                )}
               </li>
             ))}
           </ul>
 
-          <Button>
+          <Button className='w-44'>
             <Link to='/portfolio'>Portfolio</Link>
           </Button>
         </div>
 
-        <div className='lg:ml-auto xl:w-[38rem] mt-4'>
-          <p className='body-2 mb-8 text-n-4 md:mb-16 lg:mb-32 lg:w-[22rem] lg:mx-auto'>
-            {collabText}
-          </p>
-
-          <div className='relative left-1/2 flex w-[22rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100'>
+        <div className='lg:ml-auto xl:w-[38rem] mt-20'>
+          <div className='relative left-1/2 flex w-[20rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100'>
             <div className='flex w-60 aspect-square m-auto border border-n-6 rounded-full'>
               <div className='w-[6rem] aspect-square m-auto p-[0.2rem] bg-[#F18A27] rounded-full'>
                 <div className='flex items-center justify-center w-full h-full bg-n-8 rounded-full'>
-                  <img src={p} width={40} height={40} alt='pixel' />
+                  <img
+                    src={p}
+                    width={50}
+                    height={50}
+                    alt='pixel'
+                    loading='lazy'
+                  />
                 </div>
               </div>
             </div>
@@ -59,9 +64,10 @@ const Collaboration = () => {
                     }`}
                   >
                     <img
+                      loading='lazy'
                       className='m-auto'
-                      width={app.width}
-                      height={app.height}
+                      width={35}
+                      height={35}
                       alt={app.title}
                       src={app.icon}
                     />

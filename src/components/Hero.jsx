@@ -1,4 +1,4 @@
-import { curve, heroBackground, smoke, robot, hero1 } from '../assets'
+import { curve, heroBackground, robot, hero1 } from '../assets'
 import Button from './Button'
 import Section from './Section'
 import { BackgroundCircles, BottomLine, Gradient } from './design/Hero'
@@ -24,9 +24,9 @@ const Hero = () => {
       id='hero'
     >
       <div className='container relative mt-10' ref={parallaxRef}>
-        <div className='relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem]'>
+        <div className='relative z-1 max-w-[62rem] mx-auto text-center mb-[3.875rem] md:mb-20 lg:mb-[6.25rem] '>
           <h1 className='h1 mb-6'>
-            Explore the Possibilities of&nbsp;Content&nbsp;Creation with {` `}
+            Explore the Possibilities&nbsp; of&nbsp;Content Creation with {` `}
             <span className='inline-block relative'>
               Pixel
               <img
