@@ -111,7 +111,7 @@ import MenuSvg from '../assets/svg/MenuSvg'
 import Cart from './Cart'
 
 const Header = () => {
-  const { isOpen, toggleCart } = useCart()
+  const { isOpen, toggleCart, cartItems } = useCart()
   const { pathname } = useLocation()
   const [openNavigation, setOpenNavigation] = useState(false)
 
@@ -193,7 +193,7 @@ const Header = () => {
         >
           <FaCartShopping size={50} color='#F18A27' />
           <span className='absolute -top-2 -right-3 flex items-center justify-center w-6 h-6 font-bold text-[#F18A28] bg-white rounded-full'>
-            0
+            {cartItems.length}
           </span>
         </button>
         <Button className='ml-auto lg:hidden' onClick={toggleNavigation}>

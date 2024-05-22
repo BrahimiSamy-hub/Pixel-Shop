@@ -2,6 +2,7 @@ import Section from './Section'
 import Heading from './Heading'
 import { useForm } from 'react-hook-form'
 import { ToastContainer, toast } from 'react-toastify'
+import wilayas from '../constants/wilaya.json'
 
 const Contact = () => {
   const {
@@ -13,20 +14,17 @@ const Contact = () => {
 
   const onSubmit = (data) => {
     console.log(data)
-    toast.success('Messge sent successfully!')
+    toast.success('Message sent successfully!')
     reset()
   }
 
   return (
     <Section id='how-to-use'>
       <div className='container mt-10'>
-        <Heading
-          title='Contact Us'
-          text='Pixel unlocks the potential of AI-powered applications'
-        />
+        <Heading title='Contact Us' text='We will repond as soon as possible' />
         <div className='relative'>
           <div className='relative z-1 grid gap-5 lg:grid-cols-2'>
-            <div className='relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden'>
+            <div className='relative  border border-n-1/10 rounded-3xl overflow-hidden'>
               <h4 className='h4 mt-10 text-center'>Ask a Question</h4>
               <div className='flex flex-row'>
                 <form className='w-full p-4 ' onSubmit={handleSubmit(onSubmit)}>

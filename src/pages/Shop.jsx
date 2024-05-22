@@ -15,7 +15,7 @@ const Shop = () => {
 
   return (
     <>
-      <div className='pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden'>
+      <div className='pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden min-h-screen'>
         <Section
           className='pt-[8rem] -mt-[5.25rem]'
           crosses
@@ -32,7 +32,7 @@ const Shop = () => {
                     <div
                       key={product.id}
                       className='group relative'
-                      data-aos='fade-up'
+                      data-aos='flip-up'
                     >
                       <div className='overflow-hidden lg:aspect-none group-hover:opacity-75 bg-[#c9c9c9] h-[280px] min-w-[280px] border border-[#F17A28] rounded'>
                         {product.new && (

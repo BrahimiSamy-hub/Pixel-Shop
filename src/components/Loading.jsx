@@ -5,7 +5,7 @@ const Loading = ({ onLoadingComplete }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onLoadingComplete()
-    }, 1000)
+    }, 500)
 
     return () => clearTimeout(timer)
   }, [onLoadingComplete])

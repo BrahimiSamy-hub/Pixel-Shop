@@ -1,48 +1,113 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Section from '../components/Section'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { FaCircleCheck } from 'react-icons/fa6'
+import { FaCircleCheck, FaSpinner } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import shirt from '../assets/heros/america.png'
 import ButtonGradient from '../assets/svg/ButtonGradient'
+import wilayasData from '../constants/wilaya.json'
+import emailjs from 'emailjs-com'
 
 const products = [
   {
     id: 1,
     name: 'America',
-    href: '#',
-    quantity: '1',
+    quantity: 1,
     imageSrc: shirt,
     imageAlt: "Front of men's Basic Tee in black.",
-    price: '3000',
+    price: 3000,
     color: 'Black',
   },
   {
-    id: 1,
+    id: 2,
     name: 'America',
-    href: '#',
-    quantity: '2',
+    quantity: 2,
     imageSrc: shirt,
     imageAlt: "Front of men's Basic Tee in black.",
-    price: '3200',
+    price: 3200,
+    color: 'Black',
+  },
+  {
+    id: 3,
+    name: 'America',
+    quantity: 2,
+    imageSrc: shirt,
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: 3200,
     color: 'Black',
   },
 ]
 
 const Checkout = () => {
   const [isOrderSuccessful, setIsOrderSuccessful] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm()
 
+  const calculateTotal = (products) => {
+    const subtotal = products.reduce(
+      (acc, product) => acc + product.price * product.quantity,
+      0
+    )
+    const delivery = 400
+    const total = subtotal + delivery
+    return { subtotal, delivery, total }
+  }
+
   const onSubmit = (data) => {
-    console.log(data)
-    setIsOrderSuccessful(true)
-    toast.success('Order completed successfully!')
+    setIsLoading(true)
+    const { subtotal, delivery, total } = calculateTotal(products)
+    const emailData = {
+      ...data,
+      cartItems: products.map((product) => ({
+        name: product.name,
+        quantity: product.quantity,
+        price: product.price,
+        total: product.price * product.quantity,
+      })),
+      subtotal,
+      delivery,
+      total,
+      cartItemsHtml: products
+        .map(
+          (product) =>
+            `<tr>
+      <td>${product.name}</td>
+      <td>${product.quantity}</td>
+      <td>${product.price} <sup className=''><small>DA<small/></sup></td>
+    </tr>`
+        )
+        .join(''),
+    }
+
+    console.log('Email Data:', emailData)
+
+    emailjs
+      .send(
+        'service_513ik5l',
+        'template_8mw6v8p',
+        emailData,
+        'waN5fDK_pi2m7mNk7'
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text)
+          setIsOrderSuccessful(true)
+          setIsLoading(false)
+          toast.success('Order completed successfully!')
+        },
+        (error) => {
+          console.log('FAILED...', error)
+
+          toast.error('Failed to submit order. Please try again.')
+          setIsLoading(false)
+        }
+      )
   }
 
   return (
@@ -53,19 +118,19 @@ const Checkout = () => {
         crossesOffset='lg:translate-y-[5.25rem]'
         customPaddings
       >
-        <h1 className='h1 text-center mb-10'> Submit Order</h1>
+        <h1 className='h1 text-center mb-10'>Submit Order</h1>
         <div className='flex flex-col gap-10 sm:flex-row '>
           {isOrderSuccessful ? (
             <div className='w-full min-h-[450px] border p-4 rounded-xl flex flex-col justify-center items-center gap-6'>
               <FaCircleCheck color='green' size={80} />
-              <h2 className='font-manrope font-bold text-4xl leading-10  text-center uppercase'>
+              <h2 className='font-manrope font-bold text-4xl leading-10 text-center uppercase'>
                 Order completed successfully
               </h2>
-              <p className='font-normal text-lg leading-8 text-gray-500  text-center uppercase'>
+              <p className='font-normal text-lg leading-8 text-gray-500 text-center uppercase'>
                 Thank you!
               </p>
               <button className='border border-[#F17A28] p-2 rounded bg-[#F17A28] hover:opacity-75'>
-                <Link to='/shop'> Go Back to shop</Link>
+                <Link to='/shop'>Go Back to shop</Link>
               </button>
             </div>
           ) : (
@@ -101,6 +166,27 @@ const Checkout = () => {
               <div className='mb-4'>
                 <label
                   className='block mb-2 text-sm font-medium'
+                  htmlFor='email'
+                >
+                  Email<span className='text-red-500'>*</span>
+                </label>
+                <input
+                  type='email'
+                  id='email'
+                  {...register('email', { required: 'Email is required' })}
+                  className={`w-full px-4 py-3 border rounded-md focus:border-white ${
+                    errors.email ? 'border-red-500' : ''
+                  }`}
+                  placeholder='Enter Email'
+                />
+                {errors.email && (
+                  <p className='text-red-500 text-sm'>{errors.email.message}</p>
+                )}
+              </div>
+
+              <div className='mb-4'>
+                <label
+                  className='block mb-2 text-sm font-medium'
                   htmlFor='mobileNumber'
                 >
                   Mobile Number<span className='text-red-500'>*</span>
@@ -130,27 +216,31 @@ const Checkout = () => {
               <div className='mb-4'>
                 <label
                   className='block mb-2 text-sm font-medium'
-                  htmlFor='city'
+                  htmlFor='wilaya'
                 >
-                  City<span className='text-red-500'>*</span>
+                  Wilaya<span className='text-red-500'>*</span>
                 </label>
                 <select
-                  id='city'
-                  {...register('city', { required: 'City is required' })}
+                  id='wilaya'
+                  {...register('wilaya', { required: 'Wilaya is required' })}
                   defaultValue=''
                   className={`px-3 py-3 border rounded-md focus:border-white ${
-                    errors.city ? 'border-red-500' : ''
+                    errors.wilaya ? 'border-red-500' : ''
                   }`}
                 >
                   <option value='' disabled>
-                    Select a city
+                    Select a wilaya
                   </option>
-                  <option value='City1'>City1</option>
-                  <option value='City2'>City2</option>
-                  <option value='City3'>City3</option>
+                  {wilayasData.wilayas.map((wilaya, index) => (
+                    <option key={index} value={wilaya}>
+                      {wilaya}
+                    </option>
+                  ))}
                 </select>
-                {errors.city && (
-                  <p className='text-red-500 text-sm'>{errors.city.message}</p>
+                {errors.wilaya && (
+                  <p className='text-red-500 text-sm'>
+                    {errors.wilaya.message}
+                  </p>
                 )}
               </div>
 
@@ -187,18 +277,26 @@ const Checkout = () => {
               <button
                 type='submit'
                 className='w-full py-3 bg-[#F17A28] text-white font-semibold rounded-md hover:opacity-75'
+                disabled={isLoading} // Disable button while loading
               >
-                Submit
+                {isLoading ? (
+                  <div className='flex items-center justify-center space-x-2'>
+                    <FaSpinner className='animate-spin' />
+                    <span>Loading...</span>
+                  </div>
+                ) : (
+                  'Submit'
+                )}
               </button>
             </form>
           )}
-          <div className='w-full h-[498px] border p-4 rounded-xl'>
+          <div className='w-full h-[590px] border p-4 rounded-xl'>
             <h2 className='text-2xl font-semibold mb-4 text-center'>Cart</h2>
             <div className='mt-8'>
               <div className='flow-root'>
                 <ul
                   role='list'
-                  className='-my-6 divide-y divide-gray-200 min-h-[320px] overflow-y-auto'
+                  className='-my-6 divide-y divide-gray-200 max-h-[400px] overflow-y-auto'
                 >
                   {products.map((product) => (
                     <li key={product.id} className='flex py-6'>
