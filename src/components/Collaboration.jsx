@@ -10,8 +10,7 @@ const Collaboration = () => {
     <Section crosses id='portfolio'>
       <div className='container lg:flex'>
         <div className='max-w-[25rem] flex flex-col'>
-          <h2 className='h2 mb-4 md:mb-8 text-center'>Our Portfolio</h2>
-
+          <h2 className='h2 mb-4 md:mb-8 '>Our Portfolio</h2>
           <ul className='max-w-[22rem] mb-10 md:mb-14 grid grid-cols-4 gap-1'>
             {collabContent.map((item) => (
               <li className='mb-3 py-3 col-span-2 ' key={item.id}>
@@ -28,10 +27,9 @@ const Collaboration = () => {
               </li>
             ))}
           </ul>
-
-          <Button className='w-44'>
-            <Link to='/portfolio'>Portfolio</Link>
-          </Button>
+          <Link to='/portfolio'>
+            <Button className='w-44'>Portfolio</Button>
+          </Link>
         </div>
 
         <div className='lg:ml-auto xl:w-[38rem] mt-20'>

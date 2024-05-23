@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Section from '../components/Section'
 import PortfolioPhoto from '../components/PortfolioPhoto'
 import PortfolioDesign from '../components/PortfolioDesign'
@@ -35,6 +35,18 @@ const subcategories = {
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('GraphicDesign')
   const [selectedSubcategory, setSelectedSubcategory] = useState('')
+  const categoryListRef = useRef(null)
+  const subcategoryListRef = useRef(null)
+
+  const scroll = (ref, direction) => {
+    if (ref.current) {
+      ref.current.scrollBy({
+        top: 0,
+        left: direction === 'left' ? -200 : 200,
+        behavior: 'smooth',
+      })
+    }
+  }
 
   const renderCategoryComponent = () => {
     switch (selectedCategory) {
@@ -68,46 +80,80 @@ const Portfolio = () => {
           crossesOffset='lg:translate-y-[5.25rem]'
           customPaddings
         >
-          <div className='container relative '>
+          <div className='container relative'>
             <h1 className='h1 text-center'>Portfolio</h1>
-            <ul className='flex justify-around gap-15 my-8 overflow-auto '>
-              {[
-                'GraphicDesign',
-                'VisualIdentity',
-                'Design',
-                'Packaging',
-                'Apps',
-                'Photo',
-                'Weeding',
-                'Printing',
-              ].map((category) => (
-                <li
-                  key={category}
-                  className={`border p-2 rounded-3xl text-center ${
-                    selectedCategory === category ? 'bg-[#F17A28]' : ''
-                  } hover:cursor-pointer`}
-                  onClick={() => {
-                    setSelectedCategory(category)
-                    setSelectedSubcategory('')
-                  }}
-                >
-                  {category}
-                </li>
-              ))}
-            </ul>
-            <ul className='flex justify-around gap-10 my-4 overflow-auto items-center'>
-              {subcategories[selectedCategory].map((subcategory) => (
-                <li
-                  key={subcategory}
-                  className={`border p-2 rounded-3xl text-center ${
-                    selectedSubcategory === subcategory ? 'bg-[#F17A28]' : ''
-                  } hover:cursor-pointer`}
-                  onClick={() => setSelectedSubcategory(subcategory)}
-                >
-                  {subcategory}
-                </li>
-              ))}
-            </ul>
+            <div className='relative'>
+              <button
+                className='absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#F17A28] p-2 rounded-full block lg:hidden'
+                onClick={() => scroll(categoryListRef, 'left')}
+              >
+                &lt;
+              </button>
+              <ul
+                ref={categoryListRef}
+                className='flex justify-around gap-15 my-8 mx-8  overflow-hidden '
+              >
+                {[
+                  'GraphicDesign',
+                  'VisualIdentity',
+                  'Design',
+                  'Packaging',
+                  'Apps',
+                  'Photo',
+                  'Weeding',
+                  'Printing',
+                ].map((category) => (
+                  <li
+                    key={category}
+                    className={`border p-2 rounded-lg text-center ${
+                      selectedCategory === category ? 'bg-[#F17A28]' : ''
+                    } hover:cursor-pointer`}
+                    onClick={() => {
+                      setSelectedCategory(category)
+                      setSelectedSubcategory('')
+                    }}
+                  >
+                    {category}
+                  </li>
+                ))}
+              </ul>
+              <button
+                className='absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#F17A28] p-2 rounded-full block lg:hidden'
+                onClick={() => scroll(categoryListRef, 'right')}
+              >
+                &gt;
+              </button>
+            </div>
+            <div className='relative'>
+              <button
+                className='absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#F17A28] p-2 rounded-full block lg:hidden'
+                onClick={() => scroll(subcategoryListRef, 'left')}
+              >
+                &lt;
+              </button>
+              <ul
+                ref={subcategoryListRef}
+                className='flex justify-around gap-10 my-4 mx-8 overflow-hidden items-center'
+              >
+                {subcategories[selectedCategory].map((subcategory) => (
+                  <li
+                    key={subcategory}
+                    className={`border p-2 rounded-3xl text-center ${
+                      selectedSubcategory === subcategory ? 'bg-[#F17A28]' : ''
+                    } hover:cursor-pointer`}
+                    onClick={() => setSelectedSubcategory(subcategory)}
+                  >
+                    {subcategory}
+                  </li>
+                ))}
+              </ul>
+              <button
+                className='absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#F17A28] p-2 rounded-full block lg:hidden'
+                onClick={() => scroll(subcategoryListRef, 'right')}
+              >
+                &gt;
+              </button>
+            </div>
 
             {renderCategoryComponent()}
           </div>

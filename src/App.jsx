@@ -18,7 +18,8 @@ import { CartProvider } from './context/CartContext'
 import Checkout from './pages/Checkout'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import Loading from './components/Loading' // Import the Loading component
+import Rules from './pages/RulesLoup'
+import Loading from './components/Loading'
 
 const App = () => {
   const [loading, setLoading] = useState(true)
@@ -54,6 +55,7 @@ const App = () => {
             <Route path='/infographie' element={<Infographie />} />
             <Route path='/neon' element={<Neon />} />
             <Route path='/checkout' element={<Checkout />} />
+            <Route path='/rules' element={<Rules />} />
           </Routes>
           <Footer />
           <Cart />
