@@ -1,7 +1,10 @@
 import Section from '../components/Section'
 import ButtonGradient from '../assets/svg/ButtonGradient'
+import { useTranslation } from 'react-i18next'
+import { FaWolfPackBattalion } from 'react-icons/fa'
 
 const RulesLoup = () => {
+  const { t } = useTranslation()
   return (
     <>
       <div className='pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden'>
@@ -12,35 +15,97 @@ const RulesLoup = () => {
           customPaddings
         >
           <div className='container relative'>
-            <div className='flex gap-40'>
-              <h1 className='h1 uppercase w-[700px]'>
-                Les Loups-Garous De Thiercelieux
-              </h1>
-              <h1 className='h1 uppercase'>Werwolf</h1>
-            </div>
+            <h1 className='h1 uppercase text-center text-wrap'>
+              {t('titleWerWerwolf')}
+            </h1>
+
             <p className='uppercase h5 my-8'>
-              Jeu de Cartes Werwolf contient
-              <span className='text-[#F17A28]'> 50 cartes waterproof </span>
-              (38 roles differents)
+              {t('descriptionWerwolf')}
+              <span className='text-[#F17A28]'>
+                {t('descriptionNumberCardsWerwolf')}
+              </span>
+              {t('descriptionNumberRolesWerwolf')}
             </p>
             <hr />
             <div className='mt-8'>
-              <h2 className='h2 uppercase mb-8'>Les Régles du jeu</h2>
-              <p className='h6 '>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-                consectetur nobis fuga veniam odit maxime quos, delectus ab?
-                Debitis laudantium libero laborum culpa officia provident natus
-                unde ad? Magni, maiores?
-              </p>
+              <h2 className='h2 uppercase mb-8'> {t('titleRulesWerwolf')}</h2>
+              <p className='h6 '>{t('descriptionRulesWerwolf')}</p>
             </div>
             <div className='mt-8'>
-              <h2 className='h2 uppercase mb-8'>Roles</h2>
-              <p className='h6 '>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-                consectetur nobis fuga veniam odit maxime quos, delectus ab?
-                Debitis laudantium libero laborum culpa officia provident natus
-                unde ad? Magni, maiores?
-              </p>
+              <h2 className='h2 uppercase mb-8'> {t('rolesWerwolf')}</h2>
+
+              <div className='grid grid-cols-3 gap-10 my-8 h6'>
+                <div className='col-span-1 flex gap-4'>
+                  <i>
+                    <FaWolfPackBattalion size={100} />
+                  </i>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi, quisquam accusantium fugit eaque error quidem. Enim,
+                    laudantium inventore.
+                  </p>
+                </div>
+                <div className='col-span-1 flex gap-4'>
+                  <i>
+                    <FaWolfPackBattalion size={100} />
+                  </i>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi, quisquam accusantium fugit eaque error quidem. Enim,
+                    laudantium inventore.
+                  </p>
+                </div>
+                <div className='col-span-1 flex gap-4'>
+                  <i>
+                    <FaWolfPackBattalion size={100} />
+                  </i>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi, quisquam accusantium fugit eaque error quidem. Enim,
+                    laudantium inventore.
+                  </p>
+                </div>
+                <div className='col-span-1 flex gap-4'>
+                  <i>
+                    <FaWolfPackBattalion size={100} />
+                  </i>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi, quisquam accusantium fugit eaque error quidem. Enim,
+                    laudantium inventore.
+                  </p>
+                </div>
+                <div className='col-span-1 flex gap-4'>
+                  <i>
+                    <FaWolfPackBattalion size={100} />
+                  </i>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi, quisquam accusantium fugit eaque error quidem. Enim,
+                    laudantium inventore.
+                  </p>
+                </div>
+                <div className='col-span-1 flex gap-4'>
+                  <i>
+                    <FaWolfPackBattalion size={100} />
+                  </i>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi, quisquam accusantium fugit eaque error quidem. Enim,
+                    laudantium inventore.
+                  </p>
+                </div>
+                <div className='col-span-1 flex gap-4'>
+                  <i>
+                    <FaWolfPackBattalion size={100} />
+                  </i>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quasi, quisquam accusantium fugit eaque error quidem. Enim,
+                    laudantium inventore.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </Section>
