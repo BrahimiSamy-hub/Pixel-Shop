@@ -9,6 +9,21 @@ const Footer = () => {
         <p className='caption text-n-4 lg:block'>
           © {new Date().getFullYear()}. All rights reserved.
         </p>
+        <div className='text-n-4 text-center'>
+          <p>
+            <a
+              href='mailto:BrahimiSamy123@gmail.com'
+              className=' hover:text-[#F18A27]'
+            >
+              Email: BrahimiSamy123@gmail.com
+            </a>
+          </p>
+          <p>
+            <a href='tel:+0799018288' className=' hover:text-[#F18A27]'>
+              Telephone: 0799018288
+            </a>
+          </p>
+        </div>
 
         <ul className='flex gap-5 flex-wrap'>
           {socials.map((item) => (

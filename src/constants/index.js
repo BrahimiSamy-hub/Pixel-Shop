@@ -468,7 +468,7 @@ export const pricing = [
     id: '2',
     title: 'Start-up',
     description: 'Custom AI chatbot, advanced analytics, dedicated account',
-    price: null,
+    price: 'Devis',
     features: [
       'An AI chatbot that can understand your queries',
       'Personalized recommendations based on your preferences',
@@ -479,7 +479,7 @@ export const pricing = [
     id: '3',
     title: 'Start-up',
     description: 'Custom AI chatbot, advanced analytics, dedicated account',
-    price: null,
+    price: 'Devis',
     features: [
       'An AI chatbot that can understand your queries',
       'Personalized recommendations based on your preferences',

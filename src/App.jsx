@@ -1,17 +1,88 @@
+// import { useState, useEffect } from 'react'
+// import 'aos/dist/aos.css'
+// import AOS from 'aos'
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import Home from '../src/pages/Home'
+// import Pricing from '../src/pages/Pricing'
+// import Photo from '../src/pages/PhotoPricing'
+// import Audio from '../src/pages/AudioPricing'
+// import Weeding from '../src/pages/WeedingPricing'
+// import Dev from '../src/pages/DevPricing'
+// import Infographie from '../src/pages/InfographiePricing'
+// import Neon from '../src/pages/NeonPricing'
+// import Shop from '../src/pages/Shop'
+// import Portfolio from '../src/pages/Portfolio'
+// import Cart from './components/Cart'
+// import ScrollToTop from './utils/ScrollToTop'
+// import { CartProvider } from './context/CartContext'
+// import Checkout from './pages/Checkout'
+// import Header from './components/Header'
+// import Footer from './components/Footer'
+// import Rules from './pages/RulesLoup'
+// import Loading from './components/Loading'
+
+// const App = () => {
+//   const [loading, setLoading] = useState(true)
+
+//   useEffect(() => {
+//     AOS.init({
+//       duration: 1500,
+//       once: false,
+//     })
+//   }, [])
+
+//   const handleLoadingComplete = () => {
+//     setLoading(false)
+//   }
+
+//   return (
+//     <Router>
+//       <ScrollToTop />
+//       {loading ? (
+//         <Loading onLoadingComplete={handleLoadingComplete} />
+//       ) : (
+//         <CartProvider>
+//           <Header />
+//           <Routes>
+//             <Route path='/' element={<Home />} />
+//             <Route path='/pricing' element={<Pricing />} />
+//             <Route path='/shop' element={<Shop />} />
+//             <Route path='/portfolio' element={<Portfolio />} />
+//             <Route path='/photo' element={<Photo />} />
+//             <Route path='/audio' element={<Audio />} />
+//             <Route path='/weeding' element={<Weeding />} />
+//             <Route path='/dev' element={<Dev />} />
+//             <Route path='/infographie' element={<Infographie />} />
+//             <Route path='/neon' element={<Neon />} />
+//             <Route path='/checkout' element={<Checkout />} />
+//             <Route path='/rules' element={<Rules />} />
+//           </Routes>
+//           <Footer />
+//           <Cart />
+//         </CartProvider>
+//       )}
+//     </Router>
+//   )
+// }
+
+// export default App
+
 import { useState, useEffect } from 'react'
 import 'aos/dist/aos.css'
 import AOS from 'aos'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from '../src/pages/Home'
-import Pricing from '../src/pages/Pricing'
-import Photo from '../src/pages/PhotoPricing'
-import Audio from '../src/pages/AudioPricing'
-import Weeding from '../src/pages/WeedingPricing'
-import Dev from '../src/pages/DevPricing'
-import Infographie from '../src/pages/InfographiePricing'
-import Neon from '../src/pages/NeonPricing'
-import Shop from '../src/pages/Shop'
-import Portfolio from '../src/pages/Portfolio'
+import i18next from 'i18next'
+import { useTranslation } from 'react-i18next'
+import Home from './pages/Home'
+import Pricing from './pages/Pricing'
+import Photo from './pages/PhotoPricing'
+import Audio from './pages/AudioPricing'
+import Weeding from './pages/WeedingPricing'
+import Dev from './pages/DevPricing'
+import Infographie from './pages/InfographiePricing'
+import Neon from './pages/NeonPricing'
+import Shop from './pages/Shop'
+import Portfolio from './pages/Portfolio'
 import Cart from './components/Cart'
 import ScrollToTop from './utils/ScrollToTop'
 import { CartProvider } from './context/CartContext'
@@ -23,6 +94,10 @@ import Loading from './components/Loading'
 
 const App = () => {
   const [loading, setLoading] = useState(true)
+  const [language, setLanguage] = useState(
+    localStorage.getItem('i18nextLng') || 'en'
+  )
+  const { t } = useTranslation()
 
   useEffect(() => {
     AOS.init({
@@ -30,6 +105,19 @@ const App = () => {
       once: false,
     })
   }, [])
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      const newLanguage = localStorage.getItem('i18nextLng')
+      if (newLanguage && newLanguage !== language) {
+        setLanguage(newLanguage)
+        i18next.changeLanguage(newLanguage)
+      }
+    }
+
+    window.addEventListener('storage', handleLanguageChange)
+    return () => window.removeEventListener('storage', handleLanguageChange)
+  }, [language])
 
   const handleLoadingComplete = () => {
     setLoading(false)

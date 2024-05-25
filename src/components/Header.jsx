@@ -1,17 +1,26 @@
+// import { logowhite } from '../assets'
+// import { FaCartShopping } from 'react-icons/fa6'
+// import { navigation } from '../constants'
+// import { HamburgerMenu } from './design/Header'
 // import { useLocation } from 'react-router-dom'
 // import { disablePageScroll, enablePageScroll } from 'scroll-lock'
 // import { Link } from 'react-router-dom'
-
-// import { brainwave, logo, logowhite } from '../assets'
-// import { navigation } from '../constants'
+// import { useState } from 'react'
+// import { useCart } from '../context/CartContext'
 // import Button from './Button'
 // import MenuSvg from '../assets/svg/MenuSvg'
-// import { HamburgerMenu } from './design/Header'
-// import { useState } from 'react'
+// import i18next from 'i18next'
+// import { useTranslation } from 'react-i18next'
 
 // const Header = () => {
+//   const { toggleCart, cartItems } = useCart()
 //   const { pathname } = useLocation()
 //   const [openNavigation, setOpenNavigation] = useState(false)
+
+//   const changeLanguage = (lng) => {
+//     i18next.changeLanguage(lng)
+//     localStorage.setItem('i18nextLng', lng)
+//   }
 
 //   const toggleNavigation = () => {
 //     if (openNavigation) {
@@ -25,7 +34,6 @@
 
 //   const handleClick = () => {
 //     if (!openNavigation) return
-
 //     enablePageScroll()
 //     setOpenNavigation(false)
 //   }
@@ -50,7 +58,7 @@
 //             openNavigation ? 'flex' : 'hidden'
 //           } fixed top-[5rem] left-0 right-0 bottom-0 bg-n-8 lg:static lg:flex lg:mx-auto lg:bg-transparent`}
 //         >
-//           <div className='relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row'>
+//           <div className='relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row lg:pr-20'>
 //             {navigation.map((item) => (
 //               <Link
 //                 key={item.id}
@@ -59,35 +67,44 @@
 //                 className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${
 //                   item.onlyMobile ? 'lg:hidden' : ''
 //                 } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
-//                   item.url === pathname ? 'z-2 lg:text-n-1' : 'lg:text-n-1/50'
-//                 } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
+//                   item.url === pathname
+//                     ? 'z-2 lg:text-[#F18A27]'
+//                     : 'lg:text-n-1/50'
+//                 } lg:leading-5 lg:hover:text-[#F18A27] xl:px-12`}
 //               >
 //                 {item.title}
 //               </Link>
 //             ))}
-//             <div>
-//               <Link to='/shop'>
-//                 <Button className='flex lg:hidden mt-6'>Shop</Button>
-//               </Link>
-//               <span className='lg:hidden ml-6'>cart</span>
-//             </div>
 //           </div>
 
 //           <HamburgerMenu />
 //         </nav>
-//         {/* <Link to='#signup' className='button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block'>
-//           New account
-//         </Link> */}
-
-//         <Link to='/shop'>
-//           <Button className='hidden lg:flex'>Shop</Button>
-//         </Link>
-//         <button className='ml-6 mr-2 hidden lg:flex' onClick={}>cart</button>
-//         <Button
-//           className='ml-auto lg:hidden'
-//           px='px-3'
-//           onClick={toggleNavigation}
+//         <select
+//           onChange={(e) => changeLanguage(e.target.value)}
+//           value={localStorage.getItem('i18nextLng') || 'en'}
+//           className='p-2 bg-[#0E0C15] border rounded border-[#26242C] hover:border-[#F18A27]'
 //         >
+//           <option value='en'>English</option>
+//           <option value='fr'>Français</option>
+//           <option value='ar'>العربية</option>
+//         </select>
+//         <button
+//           className='ml-6 mr-2 relative hidden lg:flex'
+//           onClick={toggleCart}
+//         >
+//           <FaCartShopping size={40} color='#F18A27' />
+//           <span className='absolute -top-2 -right-3 flex items-center justify-center w-6 h-6 font-bold text-[#F18A28] bg-white rounded-full'>
+//             {cartItems.length}
+//           </span>
+//         </button>
+
+//         <FaCartShopping
+//           size={35}
+//           color='#F18A27'
+//           className='lg:hidden hover:cursor-pointer ml-auto '
+//           onClick={toggleCart}
+//         />
+//         <Button className='ml-auto lg:hidden' onClick={toggleNavigation}>
 //           <MenuSvg openNavigation={openNavigation} />
 //         </Button>
 //       </div>
@@ -97,23 +114,65 @@
 
 // export default Header
 
-import { brainwave, logo, logowhite } from '../assets'
+import { logowhite } from '../assets'
 import { FaCartShopping } from 'react-icons/fa6'
-import { navigation } from '../constants'
 import { HamburgerMenu } from './design/Header'
 import { useLocation } from 'react-router-dom'
 import { disablePageScroll, enablePageScroll } from 'scroll-lock'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useCart } from '../context/CartContext'
 import Button from './Button'
 import MenuSvg from '../assets/svg/MenuSvg'
-import Cart from './Cart'
+import i18next from 'i18next'
+import { useTranslation } from 'react-i18next'
+import { FaChevronDown } from 'react-icons/fa'
+
+const navigation = [
+  {
+    id: '0',
+    titleKey: 'home',
+    url: '/',
+  },
+  {
+    id: '1',
+    titleKey: 'portfolio',
+    url: '/portfolio',
+  },
+  {
+    id: '2',
+    titleKey: 'shop',
+    url: '/shop',
+  },
+]
 
 const Header = () => {
-  const { isOpen, toggleCart, cartItems } = useCart()
+  const { toggleCart, cartItems } = useCart()
   const { pathname } = useLocation()
   const [openNavigation, setOpenNavigation] = useState(false)
+  const { t, i18n } = useTranslation()
+  const isArabic = i18n.language === 'ar'
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [dropdownRef])
+
+  const changeLanguage = (lng) => {
+    i18next.changeLanguage(lng)
+    localStorage.setItem('i18nextLng', lng)
+    setDropdownOpen(false)
+  }
 
   const toggleNavigation = () => {
     if (openNavigation) {
@@ -131,11 +190,18 @@ const Header = () => {
     setOpenNavigation(false)
   }
 
+  const languages = [
+    { code: 'en', name: 'English', flag: 'https://flagcdn.com/w20/gb.png' },
+    { code: 'fr', name: 'Français', flag: 'https://flagcdn.com/w20/fr.png' },
+    // { code: 'ar', name: 'العربية', flag: 'https://flagcdn.com/w20/sa.png' },
+  ]
+
   return (
     <div
       className={`fixed top-0 left-0 w-full z-40 border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${
         openNavigation ? 'bg-n-8' : 'bg-n-8/90 backdrop-blur-sm'
       }`}
+      dir={isArabic ? 'rtl' : 'ltr'}
     >
       <div className='flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-2'>
         <Link className='block w-[12rem] xl:mr-8' to='/'>
@@ -160,47 +226,76 @@ const Header = () => {
                 className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${
                   item.onlyMobile ? 'lg:hidden' : ''
                 } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
-                  item.url === pathname ? 'z-2 lg:text-n-1' : 'lg:text-n-1/50'
-                } lg:leading-5 lg:hover:text-n-1 xl:px-12`}
+                  item.url === pathname
+                    ? 'z-2 lg:text-[#F18A27]'
+                    : 'lg:text-n-1/50'
+                } lg:leading-5 lg:hover:text-[#F18A27] xl:px-12`}
               >
-                {item.title}
+                {t(item.titleKey)}
               </Link>
             ))}
-
-            {/* <Link to='/shop'>
-                <Button className='flex lg:hidden mt-6'>Shop</Button>
-              </Link> */}
-            <Button className='lg:hidden ' onClick={toggleCart}>
-              <FaCartShopping size={25} color='#F18A27' />
-            </Button>
           </div>
 
           <HamburgerMenu />
         </nav>
-
-        {/* <Link to='/shop'>
-          <Button className='hidden lg:flex'>Shop</Button>
-        </Link> */}
-        {/* <button className='ml-6 mr-2 hidden lg:flex' onClick={toggleCart}>
-          <FaCartShopping size={50} color='#F18A27' />
-        </button> */}
-        {/* <Button className='lg:hidden ' onClick={toggleCart}>
-          <FaCartShopping size={25} color='#F18A27' />
-        </Button> */}
+        <div className='relative' ref={dropdownRef}>
+          <button
+            className='p-2 bg-[#0E0C15] border rounded border-[#26242C] hover:border-[#F18A27] flex items-center'
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            <img
+              src={
+                languages.find(
+                  (lang) =>
+                    lang.code === (localStorage.getItem('i18nextLng') || 'en')
+                )?.flag
+              }
+              alt='Current Language'
+              className='inline-block mr-2'
+            />
+            {
+              languages.find(
+                (lang) =>
+                  lang.code === (localStorage.getItem('i18nextLng') || 'en')
+              )?.name
+            }
+            <FaChevronDown className='ml-2' />
+          </button>
+          {dropdownOpen && (
+            <div className='absolute mt-2 border rounded'>
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => changeLanguage(lang.code)}
+                  className='flex items-center w-full p-2 hover:bg-[#F18A28]'
+                >
+                  <img src={lang.flag} alt={lang.name} className='mr-2' />
+                  {lang.name}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
         <button
           className='ml-6 mr-2 relative hidden lg:flex'
           onClick={toggleCart}
         >
-          <FaCartShopping size={50} color='#F18A27' />
+          <FaCartShopping size={40} color='#F18A27' />
           <span className='absolute -top-2 -right-3 flex items-center justify-center w-6 h-6 font-bold text-[#F18A28] bg-white rounded-full'>
             {cartItems.length}
           </span>
         </button>
+
+        <FaCartShopping
+          size={35}
+          color='#F18A27'
+          className='lg:hidden hover:cursor-pointer ml-auto '
+          onClick={toggleCart}
+        />
         <Button className='ml-auto lg:hidden' onClick={toggleNavigation}>
           <MenuSvg openNavigation={openNavigation} />
         </Button>
       </div>
-      {/* <Cart /> */}
     </div>
   )
 }

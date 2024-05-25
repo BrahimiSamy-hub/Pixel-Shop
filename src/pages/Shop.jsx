@@ -43,9 +43,9 @@ const Shop = () => {
               <h2 className='text-right'>{posters.length} Poster(s) Found</h2>
               <div className='flex gap-44'>
                 <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
-                  {posters.map((poster) => (
+                  {posters.map((poster, index) => (
                     <div
-                      key={poster.id}
+                      key={index}
                       className='group relative'
                       data-aos='flip-up'
                     >
@@ -55,7 +55,6 @@ const Shop = () => {
                             NEW
                           </span>
                         )}
-                        {console.log(poster.imageSrc)}
                         <img
                           src={poster.imageSrc}
                           alt={poster.imageAlt}

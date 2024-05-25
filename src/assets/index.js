@@ -24,6 +24,45 @@ import sliders04 from './sliders-04.svg'
 import loading from './loading.png'
 import background from './background.jpg'
 
+import loupBleu from './roles/loupBleu.svg'
+import filleDeJoie from './roles/filleDeJoie.svg'
+import villagois from './roles/villagois.svg'
+import avocat from './roles/avocat.svg'
+import barbu from './roles/barbu.svg'
+import bourreau from './roles/bourreau.svg'
+import chaman from './roles/chaman.svg'
+import chasseur from './roles/chasseur.svg'
+import chevalier from './roles/chevalier.svg'
+import comedien from './roles/comedien.svg'
+import corbeau from './roles/corbeau.svg'
+import cupidon from './roles/cupidon.svg'
+import detective from './roles/detective.svg'
+import doubleur from './roles/doubleur.svg'
+import enfantSauvage from './roles/enfantSauvage.svg'
+import fantome from './roles/fantome.svg'
+import flutiste from './roles/flutiste.svg'
+import jokerLoup from './roles/joker.svg'
+import idiot from './roles/idiot.svg'
+import lancien from './roles/lancien.svg'
+import lePreux from './roles/lePreux.svg'
+import loupNormal from './roles/loup.svg'
+import loupAlpha from './roles/loupAlpha.svg'
+import loupBlanc from './roles/loupBlanc.svg'
+import loupIcon from './roles/loupIcon.svg'
+import loupRouge from './roles/loupRouge.svg'
+import magicien from './roles/magicien.svg'
+import maitreDuTemps from './roles/maitreDuTemps.svg'
+import noName from './roles/noName.svg'
+import petiteFille from './roles/petiteFille.svg'
+import renard from './roles/renard.svg'
+import revenant from './roles/revenant.svg'
+import salvateur from './roles/salvateur.svg'
+import sorciere from './roles/sorciere.svg'
+import tueurEnSerie from './roles/tueurEnSerie.svg'
+import vampire from './roles/vampire.svg'
+import voleur from './roles/voleur.svg'
+import voyant from './roles/voyant.svg'
+
 import curve from './hero/curve.svg'
 import robot from './hero/robot.jpg'
 // import smoke from './hero/smoke.jpeg'
@@ -170,6 +209,44 @@ import carte14D from './cards/carte14.jpg'
 import carte15D from './cards/carte15.jpg'
 
 export {
+  loupBleu,
+  filleDeJoie,
+  villagois,
+  avocat,
+  barbu,
+  bourreau,
+  chaman,
+  chasseur,
+  chevalier,
+  comedien,
+  corbeau,
+  cupidon,
+  detective,
+  doubleur,
+  enfantSauvage,
+  fantome,
+  flutiste,
+  jokerLoup,
+  idiot,
+  lancien,
+  lePreux,
+  loupNormal,
+  loupAlpha,
+  loupBlanc,
+  loupIcon,
+  loupRouge,
+  magicien,
+  maitreDuTemps,
+  noName,
+  petiteFille,
+  renard,
+  revenant,
+  salvateur,
+  sorciere,
+  tueurEnSerie,
+  vampire,
+  voleur,
+  voyant,
   carte1,
   carte2,
   carte3,
