@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Section from '../components/Section'
-import { ToastContainer, toast } from 'react-toastify'
+
 import 'react-toastify/dist/ReactToastify.css'
 import { FaCircleCheck, FaSpinner } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
@@ -9,38 +9,10 @@ import shirt from '../assets/heros/america.png'
 import ButtonGradient from '../assets/svg/ButtonGradient'
 import wilayasData from '../constants/wilaya.json'
 import emailjs from 'emailjs-com'
-
-const products = [
-  {
-    id: 1,
-    name: 'America',
-    quantity: 1,
-    imageSrc: shirt,
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: 3000,
-    color: 'Black',
-  },
-  {
-    id: 2,
-    name: 'America',
-    quantity: 2,
-    imageSrc: shirt,
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: 3200,
-    color: 'Black',
-  },
-  {
-    id: 3,
-    name: 'America',
-    quantity: 2,
-    imageSrc: shirt,
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: 3200,
-    color: 'Black',
-  },
-]
+import { useCart } from '../context/CartContext'
 
 const Checkout = () => {
+  const { cartItems, removeFromCart } = useCart()
   const [isOrderSuccessful, setIsOrderSuccessful] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const {
@@ -64,7 +36,7 @@ const Checkout = () => {
     const { subtotal, delivery, total } = calculateTotal(products)
     const emailData = {
       ...data,
-      cartItems: products.map((product) => ({
+      cartItems: cartItems.map((product) => ({
         name: product.name,
         quantity: product.quantity,
         price: product.price,
@@ -73,7 +45,7 @@ const Checkout = () => {
       subtotal,
       delivery,
       total,
-      cartItemsHtml: products
+      cartItemsHtml: cartItems
         .map(
           (product) =>
             `<tr>
@@ -96,15 +68,10 @@ const Checkout = () => {
       )
       .then(
         (response) => {
-          console.log('SUCCESS!', response.status, response.text)
           setIsOrderSuccessful(true)
           setIsLoading(false)
-          toast.success('Order completed successfully!')
         },
         (error) => {
-          console.log('FAILED...', error)
-
-          toast.error('Failed to submit order. Please try again.')
           setIsLoading(false)
         }
       )
@@ -298,7 +265,7 @@ const Checkout = () => {
                   role='list'
                   className='-my-6 divide-y divide-gray-200 max-h-[400px] overflow-y-auto'
                 >
-                  {products.map((product) => (
+                  {cartItems.map((product) => (
                     <li key={product.id} className='flex py-6'>
                       <div className='h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200'>
                         <img
@@ -333,6 +300,7 @@ const Checkout = () => {
                             <button
                               type='button'
                               className='font-medium text-red-500 hover:text-red-300'
+                              onClick={() => removeFromCart(product.id)}
                             >
                               Remove
                             </button>
@@ -378,18 +346,6 @@ const Checkout = () => {
         </div>
       </Section>
       <ButtonGradient />
-      <ToastContainer
-        position='bottom-right'
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme='dark'
-      />
     </>
   )
 }

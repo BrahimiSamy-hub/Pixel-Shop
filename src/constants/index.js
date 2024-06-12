@@ -226,43 +226,6 @@ export const products = [
   },
 ]
 
-export const navigation = [
-  {
-    id: '0',
-    title: 'Home',
-    url: '/',
-  },
-  {
-    id: '1',
-    title: 'Portfolio',
-    url: '/portfolio',
-  },
-
-  {
-    id: '2',
-    title: 'Shop',
-    url: '/Shop',
-  },
-
-  // {
-  //   id: '3',
-  //   title: 'Pricing',
-  //   url: '/pricing',
-  // },
-  // {
-  //   id: '4',
-  //   title: 'New account',
-  //   url: '#signup',
-  //   onlyMobile: true,
-  // },
-  // {
-  //   id: '5',
-  //   title: 'Sign in',
-  //   url: '#login',
-  //   onlyMobile: true,
-  // },
-]
-
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare]
 
 export const notificationImages = [notification4, notification3, notification2]
@@ -440,12 +403,23 @@ export const collabApps = [
   },
 ]
 
-export const pricing = [
+export const audioPricing = [
   {
     id: '0',
-    title: 'E-commerce ',
+    title: 'Sound effect',
+    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    price: '4000',
+    features: [
+      'An advanced AI chatbot that can understand complex queries',
+      'An analytics dashboard to track your conversations',
+      'Priority support to solve issues quickly',
+    ],
+  },
+  {
+    id: '1',
+    title: 'Voix off',
     description: 'AI chatbot, personalized recommendations',
-    price: '0',
+    price: '6000',
     features: [
       'An AI chatbot that can understand your queries',
       'Personalized recommendations based on your preferences',
@@ -454,37 +428,142 @@ export const pricing = [
     ],
   },
   {
-    id: '1',
-    title: 'Brand Identity',
-    description: 'Advanced AI chatbot, priority support, analytics dashboard',
-    price: '15000',
+    id: '2',
+    title: 'Music original production',
+    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    price: '10000',
     features: [
-      'An advanced AI chatbot that can understand complex queries',
-      'An analytics dashboard to track your conversations',
-      'Priority support to solve issues quickly',
+      'An AI chatbot that can understand your queries',
+      'Personalized recommendations based on your preferences',
+      'Ability to explore the app and its features without any cost',
     ],
+  },
+]
+
+export const photoPricing = [
+  {
+    id: '0',
+    title: 'Shooting',
+    description: 'AI chatbot, personalized recommendations',
+    price: '8000',
+    features: ['lorem '],
+  },
+  {
+    id: '1',
+    title: 'Pack social media management',
+    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    price: '40000',
+    features: ['lorem'],
   },
   {
     id: '2',
-    title: 'Start-up',
+    title: 'Shot publicitaire',
     description: 'Custom AI chatbot, advanced analytics, dedicated account',
-    price: 'Devis',
-    features: [
-      'An AI chatbot that can understand your queries',
-      'Personalized recommendations based on your preferences',
-      'Ability to explore the app and its features without any cost',
-    ],
+    price: '300000',
+    features: ['lorem'],
+  },
+]
+
+export const weedingPricing = [
+  {
+    id: '0',
+    title: 'Pack jasmin',
+    description: 'AI chatbot, personalized recommendations',
+    price: '39000',
+    features: ['lorem '],
   },
   {
-    id: '3',
-    title: 'Start-up',
+    id: '1',
+    title: 'Pack lilas',
+    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    price: '68000',
+    features: ['lorem'],
+  },
+  {
+    id: '2',
+    title: 'Pack tulip',
+    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    price: '99000',
+    features: ['lorem'],
+  },
+]
+
+export const pubPricing = [
+  {
+    id: '0',
+    title: 'Affichage urbain',
+    description: 'AI chatbot, personalized recommendations',
+    price: 'Devis',
+    features: ['lorem '],
+  },
+  {
+    id: '1',
+    title: 'Impression',
+    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    price: '1800',
+    features: ['lorem'],
+  },
+  {
+    id: '2',
+    title: 'Traveaux publicitaire',
     description: 'Custom AI chatbot, advanced analytics, dedicated account',
     price: 'Devis',
-    features: [
-      'An AI chatbot that can understand your queries',
-      'Personalized recommendations based on your preferences',
-      'Ability to explore the app and its features without any cost',
-    ],
+    features: ['lorem'],
+  },
+]
+
+export const logoPricing = [
+  {
+    id: '0',
+    title: 'Graphic design',
+    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    price: '1000',
+    features: ['lorem'],
+  },
+  {
+    id: '1',
+    title: 'Identité visuelle',
+    description: 'AI chatbot, personalized recommendations',
+    price: '4000',
+    features: ['lorem '],
+  },
+  {
+    id: '2',
+    title: 'Pack social media',
+    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    price: '10000',
+    features: ['lorem'],
+  },
+]
+
+export const devPricing = [
+  {
+    id: '0',
+    title: 'E-commerce site',
+    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    price: '35000',
+    features: ['lorem'],
+  },
+  {
+    id: '1',
+    title: 'Site vitrine',
+    description: 'AI chatbot, personalized recommendations',
+    price: '50000',
+    features: ['lorem '],
+  },
+  {
+    id: '2',
+    title: 'App mobile ( Android / IOS ) ',
+    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    price: 'Devis',
+    features: ['lorem'],
+  },
+  {
+    id: '2',
+    title: 'Gestionaire',
+    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    price: 'Devis',
+    features: ['lorem'],
   },
 ]
 
@@ -538,7 +617,7 @@ export const benefits = [
   },
   {
     id: '5',
-    title: 'Neon',
+    title: 'Publicité',
     text: 'The app uses natural language processing to understand user queries and provide accurate and relevant responses.',
     backgroundUrl: './src/assets/benefits/card-6.svg',
     icon: 'FaLightbulb',
@@ -548,32 +627,20 @@ export const benefits = [
 ]
 
 export const socials = [
-  // {
-  //   id: '0',
-  //   title: 'Discord',
-  //   iconUrl: discordBlack,
-  //   url: '#',
-  // },
   {
-    id: '1',
+    id: '0',
     title: 'Twitter',
     iconUrl: twitter,
     url: 'https://www.tiktok.com/@pixel.creativeagency',
   },
   {
-    id: '2',
+    id: '1',
     title: 'Instagram',
     iconUrl: instagram,
     url: 'https://www.instagram.com/pixel.photolab',
   },
   {
-    id: '3',
-    title: 'Telegram',
-    iconUrl: telegram,
-    url: 'https://www.tiktok.com/@pixel.creativeagency',
-  },
-  {
-    id: '4',
+    id: '2',
     title: 'Facebook',
     iconUrl: facebook,
     url: 'https://www.facebook.com/pixel.lab.3110?mibextid=LQQJ4d',

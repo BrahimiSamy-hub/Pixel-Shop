@@ -14,7 +14,7 @@ const NeonPricing = () => {
           customPaddings
         >
           <div className='container'>
-            <h1 className='text-center h1 mb-6'>Neon Pricing</h1>
+            <h1 className='text-center h1 mb-6'>Logo / identité visuelle</h1>
             <PricingList />
           </div>
         </Section>
