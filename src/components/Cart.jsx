@@ -15,6 +15,16 @@ const Cart = () => {
     )
   }
 
+  const isCartEmpty = () => {
+    return cartItems.length === 0
+  }
+
+  const handleCheckoutClick = (e) => {
+    if (isCartEmpty()) {
+      e.preventDefault()
+    }
+  }
+
   return (
     <>
       <Transition.Root show={isOpen} as={Fragment}>
@@ -127,8 +137,12 @@ const Cart = () => {
                         <div className='mt-6'>
                           <Link
                             to='/checkout'
-                            className='flex items-center justify-center rounded-md border border-transparent bg-color-1 px-6 py-3 text-base font-medium text-white shadow-sm hover:opacity-75'
-                            onClick={toggleCart}
+                            className={`flex items-center justify-center rounded-md border border-transparent bg-color-1 px-6 py-3 text-base font-medium text-white shadow-sm hover:opacity-75 ${
+                              isCartEmpty()
+                                ? 'opacity-50 cursor-not-allowed'
+                                : ''
+                            }`}
+                            onClick={handleCheckoutClick}
                           >
                             Checkout
                           </Link>

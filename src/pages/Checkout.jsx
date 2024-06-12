@@ -117,7 +117,7 @@ const Checkout = () => {
                   type='text'
                   id='name'
                   {...register('name', { required: 'Name is required' })}
-                  className={`w-full px-4 py-3 border rounded-md focus:border-white ${
+                  className={`w-full px-4 py-3 border rounded-md bg-white focus:border-white ${
                     errors.name ? 'border-red-500' : ''
                   }`}
                   placeholder='Enter Name'
@@ -138,7 +138,7 @@ const Checkout = () => {
                   type='email'
                   id='email'
                   {...register('email', { required: 'Email is required' })}
-                  className={`w-full px-4 py-3 border rounded-md focus:border-white ${
+                  className={`w-full px-4 py-3 border rounded-md bg-white focus:border-white ${
                     errors.email ? 'border-red-500' : ''
                   }`}
                   placeholder='Enter Email'
@@ -165,7 +165,7 @@ const Checkout = () => {
                       message: 'Invalid mobile number format',
                     },
                   })}
-                  className={`w-full px-4 py-3 border rounded-md focus:border-white ${
+                  className={`w-full px-4 py-3 border rounded-md bg-white focus:border-white ${
                     errors.mobileNumber ? 'border-red-500' : ''
                   }`}
                   placeholder='Enter Mobile Number'
@@ -188,7 +188,7 @@ const Checkout = () => {
                   id='wilaya'
                   {...register('wilaya', { required: 'Wilaya is required' })}
                   defaultValue=''
-                  className={`px-3 py-3 border rounded-md focus:border-white ${
+                  className={`px-3 py-3 border rounded-md bg-white text-gray-500 focus:border-white ${
                     errors.wilaya ? 'border-red-500' : ''
                   }`}
                 >
@@ -221,7 +221,7 @@ const Checkout = () => {
                     required: 'Shipping Method is required',
                   })}
                   defaultValue=''
-                  className={`px-3 py-3 border rounded-md focus:border-white ${
+                  className={`px-3 py-3 border rounded-md bg-white text-gray-500 focus:border-white ${
                     errors.method ? 'border-red-500' : ''
                   }`}
                 >
