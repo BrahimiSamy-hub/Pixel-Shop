@@ -3,7 +3,7 @@ import { pricing } from '../constants'
 import Button from './Button'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const PricingList = () => {
+const WeedingPricing = () => {
   return (
     <Swiper
       spaceBetween={16}
@@ -51,4 +51,4 @@ const PricingList = () => {
   )
 }
 
-export default PricingList
+export default WeedingPricing

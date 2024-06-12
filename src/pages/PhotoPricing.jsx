@@ -1,6 +1,6 @@
 import ButtonGradient from '../assets/svg/ButtonGradient'
 import Section from '../components/Section'
-import PricingList from '../components/PricingList'
+import PricingList from '../components/PhotoDetails'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 const PhotoPricing = () => {

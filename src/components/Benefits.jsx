@@ -33,15 +33,8 @@ const Benefits = () => {
           {benefits.map((item) => (
             <Link to={item.url} key={item.id}>
               <div
-                className='block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem] shadow-lg'
-                data-aos='zoom-in'
-                style={{
-                  border: '2px solid transparent',
-                  borderImage:
-                    'linear-gradient(to bottom, #F17A28, transparent) 1',
-                  boxShadow: '0 0 0 1px #26242C',
-                  borderRadius: '3%',
-                }}
+                className='block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem] shadow-lg border border-n-6 rounded-md'
+                data-aos='fade-up'
               >
                 <div className='relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none'>
                   <h5 className='h5 mb-5'>{item.title}</h5>
@@ -50,7 +43,7 @@ const Benefits = () => {
                     <div className='text-3xl border p-2 rounded border-[#F17A28] bg-[#F17A28]'>
                       {iconComponents[item.icon]}
                     </div>
-                    <p className='ml-auto font-code text-xs font-bold text-n-1 uppercase tracking-wider'>
+                    <p className='ml-auto text-xs font-bold text-n-1 uppercase'>
                       more details
                     </p>
                     <Arrow />

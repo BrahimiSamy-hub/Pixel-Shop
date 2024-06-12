@@ -20,7 +20,7 @@ const Contact = () => {
 
   return (
     <Section id='how-to-use'>
-      <div className='container mt-10'>
+      <div className='container mt-10' data-aos='fade-up'>
         <Heading title='Contact Us' text='We will repond as soon as possible' />
         <div className='relative'>
           <div className='relative z-1 grid gap-5 lg:grid-cols-2'>

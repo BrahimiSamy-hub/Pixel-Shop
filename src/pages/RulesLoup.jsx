@@ -5,13 +5,14 @@ import Roles from '../components/Roles'
 
 const RulesLoup = () => {
   const { t, i18n } = useTranslation()
-  const isArabic = i18n.language === 'ar'
+
+  // const isArabic = i18n.language === 'ar'
 
   return (
     <>
       <div
         className={`pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden`}
-        dir={isArabic ? 'rtl' : 'ltr'}
+        // dir={isArabic ? 'rtl' : 'ltr'}
       >
         <Section
           className='pt-[8rem] -mt-[5.25rem] min-h-screen'

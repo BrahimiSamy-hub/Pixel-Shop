@@ -9,7 +9,7 @@ const Collaboration = () => {
   return (
     <Section crosses id='portfolio'>
       <div className='container lg:flex'>
-        <div className='max-w-[25rem] flex flex-col'>
+        <div className='max-w-[25rem] flex flex-col' data-aos='fade-up'>
           <h2 className='h2 mb-4 md:mb-8 '>Our Portfolio</h2>
           <ul className='max-w-[22rem] mb-10 md:mb-14 grid grid-cols-4 gap-1'>
             {collabContent.map((item) => (
@@ -32,7 +32,7 @@ const Collaboration = () => {
           </Link>
         </div>
 
-        <div className='lg:ml-auto xl:w-[38rem] mt-20'>
+        <div className='lg:ml-auto xl:w-[38rem] mt-20' data-aos='zoom-in'>
           <div className='relative left-1/2 flex w-[20rem] aspect-square border border-n-6 rounded-full -translate-x-1/2 scale:75 md:scale-100'>
             <div className='flex w-60 aspect-square m-auto border border-n-6 rounded-full'>
               <div className='w-[6rem] aspect-square m-auto p-[0.2rem] bg-[#F18A27] rounded-full'>

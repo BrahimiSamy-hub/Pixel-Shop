@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import i18next from 'i18next'
 import { useTranslation } from 'react-i18next'
 import Home from './pages/Home'
-import Pricing from './pages/Pricing'
 import Photo from './pages/PhotoPricing'
 import Audio from './pages/AudioPricing'
 import Weeding from './pages/WeedingPricing'
@@ -64,7 +63,6 @@ const App = () => {
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/pricing' element={<Pricing />} />
             <Route path='/shop' element={<Shop />} />
             <Route path='/portfolio' element={<Portfolio />} />
             <Route path='/photo' element={<Photo />} />
