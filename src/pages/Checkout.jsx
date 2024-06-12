@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Section from '../components/Section'
-
-import 'react-toastify/dist/ReactToastify.css'
 import { FaCircleCheck, FaSpinner } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
-import shirt from '../assets/heros/america.png'
 import ButtonGradient from '../assets/svg/ButtonGradient'
 import wilayasData from '../constants/wilaya.json'
 import emailjs from 'emailjs-com'
