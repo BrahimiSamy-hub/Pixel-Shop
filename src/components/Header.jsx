@@ -31,7 +31,7 @@ const navigation = [
 ]
 
 const Header = () => {
-  const { toggleCart, cartItems } = useCart()
+  const { toggleCart, getTotalQuantity } = useCart()
   const { pathname } = useLocation()
   const [openNavigation, setOpenNavigation] = useState(false)
   const { t, i18n } = useTranslation()
@@ -166,7 +166,7 @@ const Header = () => {
         >
           <FaCartShopping size={40} color='#F18A27' />
           <span className='absolute -top-2 -right-3 flex items-center justify-center w-6 h-6 font-bold text-[#F18A28] bg-white rounded-full'>
-            {cartItems.length}
+            {getTotalQuantity()}
           </span>
         </button>
 

@@ -30,7 +30,7 @@ const Checkout = () => {
 
   const onSubmit = (data) => {
     setIsLoading(true)
-    const { subtotal, delivery, total } = calculateTotal(products)
+    const { subtotal, delivery, total } = calculateTotal(cartItems)
     const emailData = {
       ...data,
       cartItems: cartItems.map((product) => ({
@@ -46,10 +46,10 @@ const Checkout = () => {
         .map(
           (product) =>
             `<tr>
-      <td>${product.name}</td>
-      <td>${product.quantity}</td>
-      <td>${product.price} <sup className=''><small>DA<small/></sup></td>
-    </tr>`
+              <td>${product.name}</td>
+              <td>${product.quantity}</td>
+              <td>${product.price} <sup className=''><small>DA<small/></sup></td>
+            </tr>`
         )
         .join(''),
     }
@@ -241,7 +241,7 @@ const Checkout = () => {
               <button
                 type='submit'
                 className='w-full py-3 bg-[#F17A28] text-white font-semibold rounded-md hover:opacity-75'
-                disabled={isLoading} // Disable button while loading
+                disabled={isLoading || cartItems.length === 0} // Disable button while loading or if cart is empty
               >
                 {isLoading ? (
                   <div className='flex items-center justify-center space-x-2'>

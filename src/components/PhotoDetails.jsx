@@ -24,9 +24,9 @@ const PhotoPricing = () => {
             <small>starting from</small>
             <div className='flex items-center h-[5.5rem] mb-6'>
               <div className='text-[3.5rem] leading-none font-bold'>
-                {item.price}
+                {item.price}{' '}
               </div>
-              <sup className='h6'>DA</sup>
+              <sup className='h4 font-bold'> DA</sup>
             </div>
 
             <Button className='w-full mb-6' white='true'>

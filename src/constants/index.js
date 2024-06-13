@@ -407,7 +407,7 @@ export const audioPricing = [
   {
     id: '0',
     title: 'Sound effect',
-    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    description: 'description',
     price: '4000',
     features: [
       'An advanced AI chatbot that can understand complex queries',
@@ -418,7 +418,7 @@ export const audioPricing = [
   {
     id: '1',
     title: 'Voix off',
-    description: 'AI chatbot, personalized recommendations',
+    description: 'description',
     price: '6000',
     features: [
       'An AI chatbot that can understand your queries',
@@ -430,7 +430,7 @@ export const audioPricing = [
   {
     id: '2',
     title: 'Music original production',
-    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    description: 'description',
     price: '10000',
     features: [
       'An AI chatbot that can understand your queries',
@@ -444,21 +444,21 @@ export const photoPricing = [
   {
     id: '0',
     title: 'Shooting',
-    description: 'AI chatbot, personalized recommendations',
+    description: 'description',
     price: '8000',
     features: ['lorem '],
   },
   {
     id: '1',
     title: 'Pack social media management',
-    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    description: 'description',
     price: '40000',
     features: ['lorem'],
   },
   {
     id: '2',
     title: 'Shot publicitaire',
-    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    description: 'description',
     price: '300000',
     features: ['lorem'],
   },
@@ -468,7 +468,7 @@ export const weedingPricing = [
   {
     id: '0',
     title: 'Pack jasmin',
-    description: 'AI chatbot, personalized recommendations',
+    description: 'description',
     price: '39000',
     features: [
       '4 Photographe',
@@ -476,13 +476,13 @@ export const weedingPricing = [
       'Montage video (FHD)',
       'Traitement photos',
       'Photobook',
-      'UPB 16Gb',
+      'USB 16Gb',
     ],
   },
   {
     id: '1',
     title: 'Pack lilas',
-    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    description: 'description',
     price: '68000',
     features: [
       '4 Photographe',
@@ -498,7 +498,7 @@ export const weedingPricing = [
   {
     id: '2',
     title: 'Pack tulip',
-    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    description: 'description',
     price: '99000',
     features: [
       '6 Photographe',
@@ -518,21 +518,21 @@ export const pubPricing = [
   {
     id: '0',
     title: 'Affichage urbain',
-    description: 'AI chatbot, personalized recommendations',
+    description: 'description',
     price: 'Devis',
     features: ['lorem '],
   },
   {
     id: '1',
     title: 'Impression',
-    description: 'Advanced AI chatbot, priority support, analytics dashboard',
-    price: '1800',
+    description: 'description',
+    price: '1800 / m²',
     features: ['lorem'],
   },
   {
     id: '2',
     title: 'Traveaux publicitaire',
-    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    description: 'description',
     price: 'Devis',
     features: ['lorem'],
   },
@@ -542,21 +542,21 @@ export const logoPricing = [
   {
     id: '0',
     title: 'Graphic design',
-    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    description: 'description',
     price: '1000',
     features: ['lorem'],
   },
   {
     id: '1',
     title: 'Identité visuelle',
-    description: 'AI chatbot, personalized recommendations',
+    description: 'description',
     price: '4000',
     features: ['lorem '],
   },
   {
     id: '2',
     title: 'Pack social media',
-    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    description: 'description',
     price: '10000',
     features: ['lorem'],
   },
@@ -566,28 +566,28 @@ export const devPricing = [
   {
     id: '0',
     title: 'E-commerce site',
-    description: 'Custom AI chatbot, advanced analytics, dedicated account',
+    description: 'description',
     price: '35000',
     features: ['lorem'],
   },
   {
     id: '1',
     title: 'Site vitrine',
-    description: 'AI chatbot, personalized recommendations',
+    description: 'description',
     price: '50000',
     features: ['lorem '],
   },
   {
     id: '2',
     title: 'App mobile ( Android / IOS ) ',
-    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    description: 'description',
     price: 'Devis',
     features: ['lorem'],
   },
   {
     id: '2',
     title: 'Gestionaire',
-    description: 'Advanced AI chatbot, priority support, analytics dashboard',
+    description: 'description',
     price: 'Devis',
     features: ['lorem'],
   },
@@ -647,7 +647,7 @@ export const benefits = [
     text: 'The app uses natural language processing to understand user queries and provide accurate and relevant responses.',
     backgroundUrl: './src/assets/benefits/card-6.svg',
     icon: 'FaLightbulb',
-    imageUrl: neonService,
+    imageUrl: service,
     url: '/neon',
   },
 ]
