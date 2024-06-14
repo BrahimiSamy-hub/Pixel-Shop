@@ -14,7 +14,7 @@ const InfographiePricing = () => {
           customPaddings
         >
           <div className='container'>
-            <h1 className='text-center h1 mb-6'>Infographie Pricing</h1>
+            <h1 className='text-center h1 mb-6'>Infographie</h1>
             <PricingList />
           </div>
         </Section>

@@ -82,7 +82,24 @@
   "VampireDescription": "Description du Vampire",
   "VoleurDescription": "Description du Voleur",
   "VoyantDescription": "Description du Voyant",
+
   "home": "Home",
   "portfolio": "Portfolio",
-  "shop": "Shop"
+  "shop": "Shop",
+
+  "details": "more details",
+  "our_services": "Our Services",
+  "our_services_description": "Discover our wide range of services tailored to meet your needs.",
+  "photo_video": "Photo / Video",
+  "photo_video_text": "Lets users quickly find answers to their questions without having to search through multiple sources.",
+  "infographie": "Infographie",
+  "infographie_text": "The app uses natural language processing to understand user queries and provide accurate and relevant responses.",
+  "weeding": "Weeding",
+  "weeding_text": "Connect with the AI chatbot from anywhere, on any device, making it more accessible and convenient.",
+  "development": "Development",
+  "development_text": "Lets users quickly find answers to their questions without having to search through multiple sources.",
+  "audio": "Audio",
+  "audio_text": "Lets users quickly find answers to their questions without having to search through multiple sources.",
+  "publicite": "Publicité",
+  "publicite_text": "The app uses natural language processing to understand user queries and provide accurate and relevant responses."
 }

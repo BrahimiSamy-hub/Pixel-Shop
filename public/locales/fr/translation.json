@@ -86,7 +86,24 @@
   "LePreuxDescription": "S'il est désigné comme cible par les loups-garous, son armure le protègera de leur première attaque.",
   "LoupNormalDescription": "Un simple loup-garou sans pouvoirs supplémentaires.",
   "LoupAlphaDescription": "Ce loup-garou peut une fois dans la partie choisir d'infecter la victime des loups-garous et la transformer en loup mais l'infecté garde les pouvoirs de sa carte initiale et conserve son rôle initial, la voyante ne pourra jamais savoir que c'est un loup-garou.",
+
   "home": "Acceuil",
   "portfolio": "Portfolio",
-  "shop": "Boutique"
+  "shop": "Boutique",
+
+  "details": "plus de détails",
+  "our_services": "Nos Services",
+  "our_services_description": "Découvrez notre large gamme de services adaptés à vos besoins.",
+  "photo_video": "Photo / Vidéo",
+  "photo_video_text": "Permet aux utilisateurs de trouver rapidement des réponses à leurs questions sans avoir à rechercher plusieurs sources.",
+  "infographie": "Infographie",
+  "infographie_text": "L'application utilise le traitement du langage naturel pour comprendre les requêtes des utilisateurs et fournir des réponses précises et pertinentes.",
+  "weeding": "Mariage",
+  "weeding_text": "Connectez-vous au chatbot AI de n'importe où, sur n'importe quel appareil, ce qui le rend plus accessible et pratique.",
+  "development": "Développement",
+  "development_text": "Permet aux utilisateurs de trouver rapidement des réponses à leurs questions sans avoir à rechercher plusieurs sources.",
+  "audio": "Audio",
+  "audio_text": "Permet aux utilisateurs de trouver rapidement des réponses à leurs questions sans avoir à rechercher plusieurs sources.",
+  "publicite": "Publicité",
+  "publicite_text": "L'application utilise le traitement du langage naturel pour comprendre les requêtes des utilisateurs et fournir des réponses précises et pertinentes."
 }

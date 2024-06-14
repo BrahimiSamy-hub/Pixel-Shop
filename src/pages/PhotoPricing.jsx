@@ -14,7 +14,7 @@ const PhotoPricing = () => {
           customPaddings
         >
           <div className='container'>
-            <h1 className='text-center h1 mb-6'>Photo Pricng</h1>
+            <h1 className='text-center h1 mb-6'>Photo / Video</h1>
             <PricingList />
           </div>
         </Section>

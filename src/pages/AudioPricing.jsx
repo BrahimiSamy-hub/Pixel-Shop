@@ -14,7 +14,7 @@ const AudioPricing = () => {
           customPaddings
         >
           <div className='container'>
-            <h1 className='text-center h1 mb-6'>Audio Pricing</h1>
+            <h1 className='text-center h1 mb-6'>Audio</h1>
             <PricingList />
           </div>
         </Section>
