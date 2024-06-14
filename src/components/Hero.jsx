@@ -54,22 +54,22 @@ const Hero = () => {
         </div>
         <div className='relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24'>
           <div className='relative z-1 p-0.5 rounded-2xl bg-orange-500'>
-            <div className='relative bg-n-8 rounded-[1rem]'>
-              {/* <div className='h-[1.4rem] bg-n-10 rounded-t-[0.9rem]' /> */}
+            {/* <div className='relative bg-n-8 rounded-[1rem]'> */}
+            {/* <div className='h-[1.4rem] bg-n-10 rounded-t-[0.9rem]' /> */}
 
-              <div className='aspect-[33/40]  rounded-t-[0.9rem] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490] ]:'>
-                <img
-                  src={hero1}
-                  // className='w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]'
-                  className='w-full h-full object-cover'
-                  width={1024}
-                  height={490}
-                  alt='AI'
-                />
+            <div className='aspect-[33/40]  rounded-t-[0.9rem] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490] ]:'>
+              <img
+                src={hero1}
+                // className='w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]'
+                className='w-full h-full object-cover'
+                width={1024}
+                height={490}
+                alt='AI'
+              />
 
-                {/* <Generating className='absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2' /> */}
+              {/* <Generating className='absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2' /> */}
 
-                {/* <ScrollParallax isAbsolutelyPositioned>
+              {/* <ScrollParallax isAbsolutelyPositioned>
                   <ul className='hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex'>
                     {heroIcons.map((icon, index) => (
                       <li className='p-5' key={index}>
@@ -79,16 +79,16 @@ const Hero = () => {
                   </ul>
                 </ScrollParallax> */}
 
-                {/* <ScrollParallax isAbsolutelyPositioned>
+              {/* <ScrollParallax isAbsolutelyPositioned>
                   <Notification
                     className='hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex'
                     title='Content creation'
                   />
                 </ScrollParallax> */}
-              </div>
+              {/* </div> */}
             </div>
 
-            <Gradient />
+            {/* <Gradient /> */}
           </div>
 
           <BackgroundCircles />
